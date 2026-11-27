@@ -413,6 +413,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   nav.open .mlinks a{display:block;padding:12px 2px;border-top:1px solid #2C3844;color:var(--on-dark);font-size:15px;text-decoration:none}
 }
 @media (max-width:380px){nav.open .mlinks{grid-template-columns:1fr}}
+.vals{grid-template-columns:repeat(3,1fr)!important;gap:22px 28px}
+footer{padding-bottom:96px!important}
+@media (max-width:640px){.vals{grid-template-columns:1fr!important}footer{padding-bottom:110px!important}}
 </style>
 </head>
 <body>
@@ -824,7 +827,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <label>Tipo
           <select name="Tipo"><option value="">Seleccione una opción</option><option>Pyme</option><option>Estudio contable</option><option>Emprendedor o persona natural</option><option>Empresa en formación</option><option>Otro</option></select>
         </label>
-        <label>Rubro<input name="Rubro" placeholder="Comercio, construcción, transporte…"></label>
+        <label>Rubro<input name="Rubro" placeholder="Ej.: minería, construcción, comercio"></label>
       </div>
       </div>
 
