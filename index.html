@@ -75,6 +75,21 @@ section,header{scroll-margin-top:72px}
 .fcard .interes label{flex-direction:row;align-items:center;gap:8px;font-weight:500;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
 .fcard .interes input{width:auto;margin:0;accent-color:#9A7A3C}
 .fcard .interes label:has(input:checked){border-color:var(--gold);background:#F6EBD3}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.sv{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;min-width:0}
+.svi{font:700 14px "Space Grotesk",sans-serif;color:var(--gold-d);letter-spacing:.1em}
+.sv h3{font-size:20px;margin:8px 0 8px}.sv p{color:var(--muted);font-size:15px}
+.howto{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;background:var(--navy);color:var(--on-dark);border-radius:16px;padding:28px}
+.howto b{display:block;font-family:"Space Grotesk",sans-serif;font-size:18px;color:var(--gold);margin-bottom:6px}.howto span{color:var(--on-dark-muted);font-size:15px}
+.fsec{font:700 12px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-d);border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
+[data-for]{display:flex;flex-direction:column;gap:16px}[data-for][hidden]{display:none!important}
+.fhint{font-size:14px;color:var(--muted);margin-top:-6px}
+.areas{border:0;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+.areas legend{font-size:14px;font-weight:600;margin-bottom:8px;padding:0}
+.fcard .areas label{flex-direction:row;align-items:center;gap:8px;font-weight:400;color:var(--ink);font-size:15px}
+.fcard .areas input{width:auto;margin:0;accent-color:#9A7A3C}
+@media (max-width:900px){.svc,.howto{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.svc,.howto,.areas{grid-template-columns:1fr}}
 /* nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);border-bottom:1px solid #2C3844}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:21}
@@ -301,16 +316,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 <section class="band" id="asesoria">
   <div class="wrap">
-    <div class="eyebrow">Asesoría</div>
-    <h2>Además de la plataforma, te acompañamos</h2>
-    <p class="lead">Si tu empresa necesita ordenar sus compras y pagos antes de automatizar, te asesoramos directamente. Trabajamos junto a tu contador, no en su reemplazo.</p>
-    <div class="road">
-      <div class="rstep now"><div class="rlabel">Compras y proveedores</div><h3>Orden en tus facturas</h3><ul><li>Proceso de recepción y revisión</li><li>Órdenes de compra y guías</li><li>Detección de cobros dobles</li></ul></div>
-      <div class="rstep now"><div class="rlabel">Reclamos e IVA</div><h3>Plazos y crédito fiscal</h3><ul><li>Reclamos y notas de crédito a tiempo</li><li>Cuadratura del registro de compras con tu contabilidad</li><li>IVA crédito que no estás usando</li></ul></div>
-      <div class="rstep now"><div class="rlabel">Pagos y caja</div><h3>Pagar bien y a tiempo</h3><ul><li>Calendario de pagos a 30 días</li><li>Prioridad de pagos por proveedor</li><li>Reportes simples para la gerencia</li></ul></div>
+    <div class="eyebrow">Asesoría para empresas</div>
+    <h2>Asesoría contable y financiera para tu pyme</h2>
+    <p class="lead">No todo se resuelve con una plataforma. Te acompañamos a ordenar las finanzas de tu empresa, tomar mejores decisiones y cumplir a tiempo. Trabajamos junto a tu contador, no en su reemplazo.</p>
+    <div class="svc">
+      <div class="sv"><div class="svi">01</div><h3>Finanzas y flujo de caja</h3><p>Proyección de caja a 30, 60 y 90 días, calendario de pagos y cobros, y qué hacer cuando la caja no alcanza.</p></div>
+      <div class="sv"><div class="svi">02</div><h3>Tributario e IVA</h3><p>Revisión del registro de compras y ventas, IVA crédito, reclamos y notas de crédito, y cuadratura antes del F29.</p></div>
+      <div class="sv"><div class="svi">03</div><h3>Compras y proveedores</h3><p>Proceso de órdenes de compra, guías y recepción. Control de cobros dobles y condiciones de pago.</p></div>
+      <div class="sv"><div class="svi">04</div><h3>Costos y presupuesto</h3><p>Cuánto te cuesta realmente vender, márgenes por producto o servicio, y un presupuesto simple para controlar el año.</p></div>
+      <div class="sv"><div class="svi">05</div><h3>Formaliza tu empresa</h3><p>Apoyo para crear tu empresa, iniciar actividades en el SII, activar la facturación electrónica y ordenar tus primeras obligaciones.</p></div>
+      <div class="sv"><div class="svi">06</div><h3>Procesos, Excel y reportes</h3><p>Planillas y reportes que se actualizan solos, control interno básico y la información que la gerencia necesita ver cada mes.</p></div>
     </div>
-    <div class="ctas"><a class="btn" href="#postular" data-interes="Asesoría contable">Pedir asesoría</a></div>
-    <p class="fine">La asesoría se cotiza según el tamaño de tu empresa y lo que necesites. La primera conversación no tiene costo.</p>
+    <div class="howto">
+      <div><b>1 · Diagnóstico sin costo</b><span>Una conversación de 30 minutos para entender tu empresa y qué te preocupa.</span></div>
+      <div><b>2 · Propuesta clara</b><span>Te enviamos qué haremos, en cuánto tiempo y cuánto cuesta. Sin letra chica.</span></div>
+      <div><b>3 · Acompañamiento</b><span>Por proyecto, por mes o por horas, presencial en Copiapó o en línea en todo Chile.</span></div>
+    </div>
+    <div class="ctas"><a class="btn" href="#postular" data-interes="Asesoría">Pedir diagnóstico de asesoría</a></div>
   </div>
 </section>
 
@@ -327,7 +349,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     </div>
     <div class="extra">
       <div class="plan"><div><h3>Estudios contables</h3><p class="vol">Precio especial por cada empresa cliente que administras. Desde 5 empresas, tu licencia es gratis.</p></div></div>
-      <div class="plan"><div><h3>Asesoría contable</h3><p class="vol">Apoyo para ordenar compras, reclamos e IVA de tu empresa. Se cotiza según lo que necesites.</p></div></div>
+      <div class="plan"><div><h3>Asesoría</h3><p class="vol">Finanzas, IVA, costos, formalización y reportes. Por proyecto, mensual o por horas. Diagnóstico sin costo. <a href="#asesoria">Ver más</a></p></div></div>
     </div>
     <p class="fine">Valores mensuales en pesos, más IVA. El precio tachado es el valor normal, que rige después de los 6 meses de oferta. Si pagas el año completo, te regalamos 2 meses. La auditoría del paso 1 es gratis durante el piloto.</p>
   </div>
@@ -424,41 +446,84 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <li>Sin costo y sin contrato</li>
         <li>No pedimos tu clave del SII</li>
         <li>Solo 6 cupos de piloto en esta etapa</li>
-        <li>Asesoría a la medida de tu empresa</li>
+        <li>Diagnóstico de asesoría sin costo</li>
       </ul>
     </div>
     <form id="fpiloto" class="fcard" novalidate>
-      <fieldset class="interes"><legend>¿Qué te interesa? *</legend>
-        <label><input type="radio" name="Interés" value="Piloto gratis" required checked> Piloto gratis</label>
-        <label><input type="radio" name="Interés" value="Asesoría contable"> Asesoría</label>
+      <fieldset class="interes"><legend>¿Qué necesitas? *</legend>
+        <label><input type="radio" name="Interés" value="Piloto gratis" checked> Piloto gratis</label>
+        <label><input type="radio" name="Interés" value="Asesoría"> Asesoría</label>
         <label><input type="radio" name="Interés" value="Piloto y asesoría"> Ambos</label>
       </fieldset>
+      <p class="fhint" id="fhint"></p>
+
+      <div class="fsec">Tus datos</div>
       <div class="frow">
         <label>Nombre y apellido *<input name="Nombre" required autocomplete="name"></label>
         <label>Cargo<input name="Cargo" placeholder="Dueño, gerente, contador…" autocomplete="organization-title"></label>
       </div>
       <div class="frow">
+        <label>Correo *<input name="email" type="email" required autocomplete="email"></label>
+        <label>WhatsApp *<input name="WhatsApp" type="tel" required placeholder="+56 9 ..." autocomplete="tel"></label>
+      </div>
+
+      <div class="fsec">Tu empresa</div>
+      <div class="frow">
         <label>Empresa *<input name="Empresa" required autocomplete="organization"></label>
         <label>Ciudad<input name="Ciudad" placeholder="Copiapó"></label>
       </div>
       <div class="frow">
-        <label>Correo *<input name="email" type="email" required autocomplete="email"></label>
-        <label>WhatsApp *<input name="WhatsApp" type="tel" required placeholder="+56 9 ..." autocomplete="tel"></label>
-      </div>
-      <div class="frow">
         <label>Tipo *
-          <select name="Tipo" required><option value="">Elige una opción</option><option>Pyme</option><option>Estudio contable</option><option>Otro</option></select>
+          <select name="Tipo" required><option value="">Elige una opción</option><option>Pyme</option><option>Estudio contable</option><option>Emprendedor o persona</option><option>Empresa por crear</option><option>Otro</option></select>
         </label>
-        <label>Facturas recibidas al mes *
-          <select name="Facturas al mes" required><option value="">Elige una opción</option><option>Hasta 50</option><option>51 a 150</option><option>151 a 400</option><option>Más de 400</option><option>No sé</option></select>
-        </label>
+        <label>Rubro<input name="Rubro" placeholder="Comercio, construcción, transporte…"></label>
       </div>
-      <label>¿Qué usas para tu contabilidad?
-        <select name="Sistema contable"><option value="">Elige una opción</option><option>Excel o planillas</option><option>Nubox</option><option>Defontana</option><option>Softland</option><option>Otro ERP</option><option>Lo lleva un contador externo</option></select>
-      </label>
-      <label>¿Cuál es tu mayor problema con las facturas?<textarea name="Problema" rows="3" placeholder="Ej.: se nos pasan los plazos, pagamos facturas repetidas…"></textarea></label>
+
+      <div data-for="piloto">
+        <div class="fsec">Para el piloto</div>
+        <div class="frow">
+          <label>Facturas recibidas al mes *
+            <select name="Facturas al mes" data-req><option value="">Elige una opción</option><option>Hasta 50</option><option>51 a 150</option><option>151 a 400</option><option>Más de 400</option><option>No sé</option></select>
+          </label>
+          <label>¿Qué usas para tu contabilidad?
+            <select name="Sistema contable"><option value="">Elige una opción</option><option>Excel o planillas</option><option>Nubox</option><option>Defontana</option><option>Softland</option><option>Otro ERP</option><option>Lo lleva un contador externo</option></select>
+          </label>
+        </div>
+        <label>¿Cuál es tu mayor problema con las facturas?<textarea name="Problema con facturas" rows="2" placeholder="Ej.: se nos pasan los plazos, pagamos facturas repetidas…"></textarea></label>
+      </div>
+
+      <div data-for="asesoria">
+        <div class="fsec">Para la asesoría</div>
+        <fieldset class="areas"><legend>¿En qué áreas necesitas ayuda? *</legend>
+          <label><input type="checkbox" value="Finanzas y flujo de caja"> Finanzas y flujo de caja</label>
+          <label><input type="checkbox" value="Tributario e IVA"> Tributario e IVA</label>
+          <label><input type="checkbox" value="Compras y proveedores"> Compras y proveedores</label>
+          <label><input type="checkbox" value="Costos y presupuesto"> Costos y presupuesto</label>
+          <label><input type="checkbox" value="Formalizar mi empresa"> Formalizar mi empresa</label>
+          <label><input type="checkbox" value="Procesos, Excel y reportes"> Procesos, Excel y reportes</label>
+          <label><input type="checkbox" value="Otro"> Otro</label>
+        </fieldset>
+        <div class="frow">
+          <label>Trabajadores
+            <select name="Trabajadores"><option value="">Elige una opción</option><option>Solo yo</option><option>2 a 9</option><option>10 a 49</option><option>50 a 199</option><option>200 o más</option></select>
+          </label>
+          <label>¿Tienes contador?
+            <select name="Tiene contador"><option value="">Elige una opción</option><option>Sí, interno</option><option>Sí, externo</option><option>No</option></select>
+          </label>
+        </div>
+        <div class="frow">
+          <label>¿Cuándo lo necesitas?
+            <select name="Urgencia"><option value="">Elige una opción</option><option>Lo antes posible</option><option>Este mes</option><option>En los próximos 3 meses</option><option>Solo estoy averiguando</option></select>
+          </label>
+          <label>Modalidad
+            <select name="Modalidad"><option value="">Elige una opción</option><option>Presencial en Copiapó</option><option>En línea</option><option>Me da lo mismo</option></select>
+          </label>
+        </div>
+        <label>Cuéntanos qué necesitas *<textarea name="Necesidad de asesoría" rows="3" data-req placeholder="Ej.: quiero saber cuánta plata voy a tener el próximo mes, ordenar mis pagos a proveedores…"></textarea></label>
+      </div>
+
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <label class="consent"><input type="checkbox" name="Autoriza contacto" value="Sí" required> Autorizo a FukuOps a usar estos datos solo para contactarme por el piloto o la asesoría.</label>
+      <label class="consent"><input type="checkbox" name="Autoriza contacto" value="Sí" required> Autorizo a FukuOps a usar estos datos solo para contactarme por esta solicitud.</label>
       <button class="btn" type="submit" id="fbtn">Enviar solicitud</button>
       <p class="fmsg" id="fmsg" role="status" aria-live="polite"></p>
       <p class="falt">¿Prefieres hablar directo? <a href="https://wa.me/56946599420">Escríbenos por WhatsApp</a></p>
@@ -495,23 +560,45 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 <script>
 (function(){
-  var f=document.getElementById('fpiloto'),b=document.getElementById('fbtn'),m=document.getElementById('fmsg');
+  var f=document.getElementById('fpiloto'),b=document.getElementById('fbtn'),m=document.getElementById('fmsg'),h=document.getElementById('fhint');
+  var hints={'Piloto gratis':'4 semanas gratis probando FukuOps con tus facturas reales.','Asesoría':'Cuéntanos tu necesidad y te proponemos un diagnóstico sin costo.','Piloto y asesoría':'Probamos la plataforma y además te asesoramos.'};
+  function mode(){
+    var v=(f.querySelector('input[name="Interés"]:checked')||{}).value||'Piloto gratis';
+    var showP=v!=='Asesoría', showA=v!=='Piloto gratis';
+    f.querySelectorAll('[data-for]').forEach(function(sec){
+      var on=(sec.dataset.for==='piloto')?showP:showA; sec.hidden=!on;
+      sec.querySelectorAll('[data-req]').forEach(function(el){el.required=on;});
+    });
+    h.textContent=hints[v]||'';
+    b.textContent=v==='Asesoría'?'Pedir diagnóstico':'Enviar solicitud';
+  }
+  window.fkSetInteres=function(v){var r=f.querySelector('input[name="Interés"][value="'+v+'"]');if(r){r.checked=true;mode();}};
+  f.querySelectorAll('input[name="Interés"]').forEach(function(r){r.addEventListener('change',mode);}); mode();
   f.addEventListener('submit',function(e){
     e.preventDefault(); m.className='fmsg'; m.textContent='';
+    var areasBox=f.querySelector('[data-for="asesoria"]'), areas=[].map.call(f.querySelectorAll('.areas input:checked'),function(x){return x.value;});
+    if(!areasBox.hidden && !areas.length){m.className='fmsg err';m.textContent='Elige al menos un área de asesoría.';return;}
     if(!f.checkValidity()){m.className='fmsg err';m.textContent='Completa los campos con * y acepta la autorización.';f.reportValidity&&f.reportValidity();return;}
-    var d={}; new FormData(f).forEach(function(v,k){d[k]=v;});
+    var d={};
+    [].forEach.call(f.elements,function(el){
+      if(!el.name||el.closest('[hidden]'))return;
+      if((el.type==='radio'||el.type==='checkbox')&&!el.checked)return;
+      if(el.value!=='')d[el.name]=el.value;
+    });
+    if(areas.length)d['Áreas de asesoría']=areas.join(', ');
     d._subject=(d['Interés']||'Contacto')+' · '+(d.Empresa||''); d._template='table'; d._replyto=d.email;
-    b.disabled=true; b.textContent='Enviando…';
+    var label=b.textContent; b.disabled=true; b.textContent='Enviando…';
     fetch('https://formsubmit.co/ajax/contacto.fukuops@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
       .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)==='false')throw j;return j;});})
-      .then(function(){f.reset();m.className='fmsg ok';m.textContent='¡Listo! Recibimos tu solicitud. Te contactaremos en menos de 48 horas hábiles.';})
+      .then(function(){f.reset();mode();m.className='fmsg ok';m.textContent='¡Listo! Recibimos tu solicitud. Te contactaremos en menos de 48 horas hábiles.';})
       .catch(function(){m.className='fmsg err';m.innerHTML='No pudimos enviar el formulario. Escríbenos por <a href="https://wa.me/56946599420">WhatsApp</a> o a contacto.fukuops@gmail.com.';})
-      .finally(function(){b.disabled=false;b.textContent='Enviar solicitud';});
+      .finally(function(){b.disabled=false;b.textContent=label;});
   });
 })();
 </script>
 <script>
-document.querySelectorAll('[data-interes]').forEach(function(a){a.addEventListener('click',function(){var r=document.querySelector('input[name="Interés"][value="'+a.dataset.interes+'"]');if(r)r.checked=true;});});
+document.querySelectorAll('[data-interes]').forEach(function(a){a.addEventListener('click',function(){window.fkSetInteres&&window.fkSetInteres(a.dataset.interes);});});
+document.querySelectorAll('a[href="#postular"]:not([data-interes])').forEach(function(a){a.addEventListener('click',function(){window.fkSetInteres&&window.fkSetInteres('Piloto gratis');});});
 </script>
 
 </body>
