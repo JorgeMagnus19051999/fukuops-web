@@ -177,6 +177,17 @@ footer a{color:inherit}
 .commit ul{margin:0;padding-left:20px;display:grid;grid-template-columns:1fr 1fr;gap:6px 32px}
 .commit li{color:var(--on-dark)}
 @media (max-width:640px){.commit ul{grid-template-columns:1fr}}
+.path{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:none}
+.path li{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px 22px 22px;min-width:0}
+.path li:not(:last-child)::after{content:"";position:absolute;right:-13px;top:50%;width:10px;height:10px;border-top:2px solid var(--gold-d);border-right:2px solid var(--gold-d);transform:translateY(-50%) rotate(45deg);z-index:1}
+.path .pn{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--sand);color:var(--gold-d);font:700 15px "Space Grotesk",sans-serif;margin-bottom:10px}
+.path b{display:block;font-family:"Space Grotesk",sans-serif;font-size:18px;margin-bottom:6px}
+.path li > span:last-child{color:var(--muted);font-size:15px}
+.path .pfu{background:var(--navy);border-color:var(--navy);color:var(--on-dark)}
+.path .pfu .pn{background:var(--gold);color:var(--navy)}
+.path .pfu > span:last-child{color:var(--on-dark-muted)}
+.flink{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:14px;font-weight:600;color:var(--gold-d)}
+.flink-d{color:var(--gold)!important}
 /* nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);border-bottom:1px solid #2C3844}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:21}
@@ -364,6 +375,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   .fcard input,.fcard select,.fcard textarea{font-size:16px}
   .direct{margin-top:22px}
 }
+@media (max-width:900px){.path{grid-template-columns:1fr;gap:14px}.path li:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-12px;transform:translateX(-50%) rotate(135deg)}}
+@media (max-width:640px){.path{margin-top:24px}.path li{padding:18px}.path b{font-size:17px}.flink{font-size:13.5px}}
 </style>
 </head>
 <body>
@@ -626,21 +639,22 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 <section class="band sand" id="asesoria">
   <div class="wrap">
-    <div class="eyebrow">Servicios complementarios</div>
-    <h2>Asesoría contable y financiera</h2>
-    <p class="lead">La plataforma FukuOps es nuestro producto principal. De forma opcional, acompañamos a su empresa en el ordenamiento financiero, la toma de decisiones y el cumplimiento oportuno de sus obligaciones. Trabajamos en conjunto con su contador, no en su reemplazo.</p>
+    <div class="eyebrow">Asesoría y control continuo</div>
+    <h2>Diagnosticamos el problema y lo mantenemos bajo control</h2>
+    <p class="lead">Cada asesoría comienza con un diagnóstico de su empresa. Resolvemos el problema puntual y, cuando corresponde a facturas, plazos o pagos, FukuOps lo mantiene bajo control de forma continua. Trabajamos en conjunto con su contador, no en su reemplazo.</p>
+    <ol class="path">
+      <li><span class="pn">1</span><b>Diagnóstico sin costo</b><span>Reunión de 30 minutos para conocer su empresa e identificar dónde se pierde dinero o tiempo.</span></li>
+      <li><span class="pn">2</span><b>Solución puntual</b><span>Asesoría con alcance, plazos y valor definidos por escrito, por proyecto, mensual o por horas.</span></li>
+      <li class="pfu"><span class="pn">3</span><b>Control continuo con FukuOps</b><span>La plataforma vigila sus facturas, plazos y pagos cada mes para que el problema no vuelva a ocurrir.</span></li>
+    </ol>
+    <h3 class="ptitle">Áreas de asesoría</h3>
     <div class="svc">
-      <div class="sv"><div class="svi">01</div><h3>Finanzas y flujo de caja</h3><p>Proyección de caja a 30, 60 y 90 días, calendario de pagos y cobros, y planificación ante déficits de liquidez.</p></div>
-      <div class="sv"><div class="svi">02</div><h3>Tributario e IVA</h3><p>Revisión del registro de compras y ventas, IVA crédito, reclamos y notas de crédito, y cuadratura antes del F29.</p></div>
-      <div class="sv"><div class="svi">03</div><h3>Compras y proveedores</h3><p>Procedimientos de órdenes de compra, guías y recepción. Control de cobros duplicados y condiciones de pago.</p></div>
-      <div class="sv"><div class="svi">04</div><h3>Costos y presupuesto</h3><p>Costo real de venta, márgenes por producto o servicio y presupuesto anual de control.</p></div>
-      <div class="sv"><div class="svi">05</div><h3>Formalización de empresas</h3><p>Apoyo en la constitución de la empresa, inicio de actividades en el SII, habilitación de facturación electrónica y primeras obligaciones tributarias.</p></div>
-      <div class="sv"><div class="svi">06</div><h3>Procesos, Excel y reportes</h3><p>Planillas y reportes automatizados, control interno y la información de gestión que la gerencia requiere cada mes.</p></div>
-    </div>
-    <div class="howto">
-      <div><b>1 · Diagnóstico sin costo</b><span>Una reunión de 30 minutos para conocer su empresa y sus necesidades.</span></div>
-      <div><b>2 · Propuesta clara</b><span>Le enviamos el alcance, los plazos y el valor del servicio por escrito.</span></div>
-      <div><b>3 · Acompañamiento</b><span>Por proyecto, mensual o por horas; presencial en Copiapó o en línea en todo Chile.</span></div>
+      <div class="sv"><div class="svi">01</div><h3>Finanzas y flujo de caja</h3><p>Proyección de caja a 30, 60 y 90 días, calendario de pagos y cobros, y planificación ante déficits de liquidez.</p><p class="flink">Luego, FukuOps le avisa de los pagos por vencer a 30 días.</p></div>
+      <div class="sv"><div class="svi">02</div><h3>Tributario e IVA</h3><p>Revisión del registro de compras y ventas, IVA crédito, reclamos y notas de crédito, y cuadratura antes del F29.</p><p class="flink">Luego, FukuOps vigila sus plazos de reclamo y su IVA crédito mes a mes.</p></div>
+      <div class="sv"><div class="svi">03</div><h3>Compras y proveedores</h3><p>Procedimientos de órdenes de compra, guías y recepción. Control de cobros duplicados y condiciones de pago.</p><p class="flink">Luego, FukuOps cruza cada factura con su orden de compra y su guía.</p></div>
+      <div class="sv"><div class="svi">04</div><h3>Costos y presupuesto</h3><p>Costo real de venta, márgenes por producto o servicio y presupuesto anual de control.</p><p class="flink">Luego, FukuOps entrega cada mes el detalle de compras para controlar el presupuesto.</p></div>
+      <div class="sv"><div class="svi">05</div><h3>Formalización de empresas</h3><p>Apoyo en la constitución de la empresa, inicio de actividades en el SII, habilitación de facturación electrónica y primeras obligaciones tributarias.</p><p class="flink">Luego, FukuOps controla los plazos desde su primera factura recibida.</p></div>
+      <div class="sv"><div class="svi">06</div><h3>Procesos, Excel y reportes</h3><p>Planillas y reportes automatizados, control interno y la información de gestión que la gerencia requiere cada mes.</p><p class="flink">Luego, FukuOps genera el informe mensual de facturas en Excel.</p></div>
     </div>
     <div class="ctas"><a class="btn" href="#postular" data-interes="Asesoría">Solicitar diagnóstico de asesoría</a></div>
   </div>
@@ -674,6 +688,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
           <li>No reemplazamos a su contador</li>
         </ul>
         <p class="gnote">Si requiere un cambio de sistema, le apoyamos en la preparación de datos y la evaluación de alternativas.</p>
+        <p class="gnote flink-d">Una vez ordenados sus datos, FukuOps cruza su ERP con el SII cada mes para que las diferencias no vuelvan.</p>
       </div>
     </div>
     <div class="ctas"><a class="btn" href="#postular" data-interes="ERP y sistemas">Consultar compatibilidad con su ERP</a></div>
