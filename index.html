@@ -120,6 +120,17 @@ section,header{scroll-margin-top:72px}
 .faq details[open] summary::after{content:"–"}
 .faq details p{margin-top:10px;color:var(--muted)}
 @media (max-width:900px){.erpgrid,.demo{grid-template-columns:1fr}.founder{grid-template-columns:1fr;gap:24px}.fphoto{width:140px;height:140px}.fphoto img{width:96px}}
+.ptitle{font-size:22px;margin:44px 0 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
+.ptitle small{font:400 15px Inter,sans-serif;color:var(--muted)}
+.reg{margin-top:6px;font-size:13px;color:var(--muted)}
+.plan h3 .sm{font:400 14px Inter,sans-serif;color:var(--muted)}
+.ptable{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.prow{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px 22px;border-top:1px solid var(--line)}
+.prow:first-child{border-top:0}
+.prow b{display:block;font-weight:600}.prow span{color:var(--muted);font-size:14.5px}
+.pv{font:700 20px "Space Grotesk",sans-serif;text-align:right;white-space:nowrap}
+.pv small{font:400 13px Inter,sans-serif;color:var(--muted)}
+@media (max-width:640px){.prow{grid-template-columns:1fr}.pv{text-align:left}}
 /* nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);border-bottom:1px solid #2C3844}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:21}
@@ -416,19 +427,37 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <section class="band sand" id="precios">
   <div class="wrap">
     <div class="eyebrow">Precios</div>
-    <h2>Planes según el volumen mensual de facturas recibidas</h2>
-    <div class="promo"><span class="promo-tag">Oferta de lanzamiento</span><span>30% de descuento durante los primeros 6 meses para las primeras 10 empresas que contraten después del piloto.</span></div>
+    <h2>Precios de lanzamiento</h2>
+    <p class="lead">Valores introductorios para las primeras empresas que trabajen con nosotros. Todos los valores son en pesos chilenos, más IVA.</p>
+    <div class="promo"><span class="promo-tag">Lanzamiento</span><span>Las empresas que contraten antes del 30 de junio de 2027 mantienen el precio de lanzamiento durante 12 meses.</span></div>
+
+    <h3 class="ptitle">Plataforma FukuOps <small>· mensual, según facturas recibidas</small></h3>
     <div class="plans">
-      <div class="plan"><h3>Starter</h3><div class="vol">Hasta 50 facturas</div><div class="was">$19.990</div><div class="price">$13.990 <small>/mes</small></div></div>
-      <div class="plan hl"><span class="pop">Recomendado</span><h3>Pyme</h3><div class="vol">51 a 150 facturas</div><div class="was">$29.990</div><div class="price">$20.990 <small>/mes</small></div></div>
-      <div class="plan"><h3>Pro</h3><div class="vol">151 a 400 facturas</div><div class="was">$49.990</div><div class="price">$34.990 <small>/mes</small></div></div>
-      <div class="plan"><h3>Alto volumen</h3><div class="vol">Más de 400 facturas</div><div class="was">desde $79.990</div><div class="price"><small>desde</small> $55.990</div></div>
+      <div class="plan"><h3>Básico</h3><div class="vol">Hasta 50 facturas</div><div class="price">$9.990 <small>/mes</small></div><div class="reg">Precio regular: $14.990</div></div>
+      <div class="plan hl"><span class="pop">Recomendado</span><h3>Pyme</h3><div class="vol">51 a 150 facturas</div><div class="price">$16.990 <small>/mes</small></div><div class="reg">Precio regular: $24.990</div></div>
+      <div class="plan"><h3>Pro</h3><div class="vol">151 a 400 facturas</div><div class="price">$27.990 <small>/mes</small></div><div class="reg">Precio regular: $39.990</div></div>
+      <div class="plan"><h3>Alto volumen</h3><div class="vol">Más de 400 facturas</div><div class="price"><small>desde</small> $44.990</div><div class="reg">Precio regular: desde $59.990</div></div>
     </div>
+    <p class="fine">Todos los planes incluyen control de plazos, cruce con órdenes de compra y guías, detección de cobros duplicados, contabilización e IVA, e informe en Excel. El pago anual anticipado incluye 2 meses sin costo.</p>
+
+    <h3 class="ptitle">Estudios contables</h3>
     <div class="extra">
-      <div class="plan"><div><h3>Estudios contables</h3><p class="vol">Precio preferente por cada empresa cliente administrada. Desde 5 empresas, la licencia del estudio no tiene costo.</p></div></div>
-      <div class="plan"><div><h3>Asesoría</h3><p class="vol">Finanzas, IVA, costos, formalización y reportes. Por proyecto, mensual o por horas. Diagnóstico sin costo. <a href="#asesoria">Ver más</a></p></div></div>
+      <div class="plan"><div><h3>$6.990 <small class="sm">por empresa cliente al mes</small></h3><p class="vol">Precio preferente para estudios que administran varias empresas. Desde 5 empresas, la licencia del estudio no tiene costo.</p></div></div>
+      <div class="plan"><div><h3>Programa piloto</h3><p class="vol">4 semanas sin costo con auditoría de facturas incluida. Sin contrato ni medio de pago. <a href="#piloto">Ver programa</a></p></div></div>
     </div>
-    <p class="fine">Valores mensuales en pesos, más IVA. El precio tachado corresponde al valor regular, vigente después de los 6 meses de oferta. El pago anual anticipado incluye 2 meses sin costo. La auditoría de la etapa 1 no tiene costo durante el piloto.</p>
+
+    <h3 class="ptitle">Asesoría y servicios <small>· la primera reunión de diagnóstico no tiene costo</small></h3>
+    <div class="ptable" role="table">
+      <div class="prow" role="row"><div><b>Auditoría de facturas</b><span>Revisión de los últimos 3 meses con informe de observaciones</span></div><div class="pv">$59.990 <small>pago único</small></div></div>
+      <div class="prow" role="row"><div><b>Hora de asesoría</b><span>Finanzas, IVA, costos o procesos. Presencial en Copiapó o en línea</span></div><div class="pv">$19.990 <small>por hora</small></div></div>
+      <div class="prow" role="row"><div><b>Paquete de 5 horas</b><span>Para usar en un plazo de 3 meses</span></div><div class="pv">$84.990 <small>pago único</small></div></div>
+      <div class="prow" role="row"><div><b>Acompañamiento mensual</b><span>Reunión mensual, revisión de compras e IVA antes del F29 y flujo de caja</span></div><div class="pv"><small>desde</small> $49.990 <small>/mes</small></div></div>
+      <div class="prow" role="row"><div><b>Flujo de caja proyectado</b><span>Planilla a 30, 60 y 90 días adaptada a su empresa, con reunión de entrega</span></div><div class="pv"><small>desde</small> $69.990</div></div>
+      <div class="prow" role="row"><div><b>Formalización de empresa</b><span>Acompañamiento en constitución, inicio de actividades y facturación electrónica. No incluye gastos notariales ni de terceros</span></div><div class="pv"><small>desde</small> $49.990</div></div>
+      <div class="prow" role="row"><div><b>Diagnóstico de ERP</b><span>Revisión del uso de su sistema y de su cuadratura con el SII, con informe de mejoras</span></div><div class="pv"><small>desde</small> $69.990</div></div>
+      <div class="prow" role="row"><div><b>Apoyo en cambio de ERP</b><span>Preparación, depuración y cuadratura de datos antes y después de la migración</span></div><div class="pv">Cotización</div></div>
+    </div>
+    <p class="fine">Valores referenciales más IVA. Los servicios con valor «desde» se cotizan según el tamaño de la empresa y el alcance acordado, que se informa por escrito antes de comenzar.</p>
   </div>
 </section>
 
@@ -457,7 +486,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
           <li>Informe en Excel con cobros duplicados, diferencias y plazos vencidos</li>
           <li>4 semanas de uso de la plataforma sin costo</li>
           <li>Acompañamiento directo del fundador</li>
-          <li>Precio de lanzamiento garantizado si decide continuar (30% de descuento por 6 meses)</li>
+          <li>Precio de lanzamiento garantizado por 12 meses si decide continuar</li>
           <li>Sus sugerencias se incorporan al desarrollo de la plataforma</li>
         </ul>
       </div>
@@ -535,7 +564,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <details><summary>¿Qué archivos necesito para el piloto?</summary><p>El registro de compras del SII de los últimos meses y, si dispone de ellos, los listados de órdenes de compra, guías de despacho o el libro de compras de su contabilidad, en formato Excel o CSV.</p></details>
       <details><summary>¿Funciona con mi ERP?</summary><p>Sí, si su ERP permite exportar a Excel o CSV. Durante el piloto adaptamos la carga al formato de su sistema.</p></details>
       <details><summary>¿Qué pasa con mis datos?</summary><p>Se utilizan exclusivamente para revisar sus facturas. No se comparten ni se comercializan, y no se muestran sin autorización escrita. Al término del piloto puede solicitar su eliminación.</p></details>
-      <details><summary>¿Qué pasa después del piloto?</summary><p>Revisamos los resultados en conjunto. Si decide continuar, puede contratar un plan con el precio de lanzamiento. En caso contrario, conserva el informe sin costo alguno.</p></details>
+      <details><summary>¿Qué pasa después del piloto?</summary><p>Revisamos los resultados en conjunto. Si decide continuar, puede contratar un plan con el precio de lanzamiento, vigente por 12 meses. En caso contrario, conserva el informe sin costo alguno.</p></details>
       <details><summary>¿Reemplazan a mi contador?</summary><p>No. FukuOps y nuestra asesoría complementan el trabajo de su contador, entregándole la información ordenada y validada.</p></details>
       <details><summary>¿Atienden fuera de Copiapó?</summary><p>Sí. La plataforma y la asesoría operan en línea en todo Chile. En Copiapó también ofrecemos reuniones presenciales.</p></details>
     </div>
