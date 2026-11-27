@@ -406,6 +406,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   .pd summary{font-size:13px}
   .plans .plan:has(.pd[open]){grid-column:1/-1}
 }
+.mlinks{display:none}
+@media (max-width:900px){
+  nav.open .navlinks > a:not(.btn){display:none!important}
+  nav.open .mlinks{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;max-height:calc(100vh - 190px);overflow-y:auto}
+  nav.open .mlinks a{display:block;padding:12px 2px;border-top:1px solid #2C3844;color:var(--on-dark);font-size:15px;text-decoration:none}
+}
+@media (max-width:380px){nav.open .mlinks{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -422,6 +429,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <a href="#precios">Precios</a>
       <a href="#asesoria">Servicios</a>
       <a href="#faq">Preguntas</a>
+      <div class="mlinks"><a href="#problema">El problema</a><a href="#demo">Demo</a><a href="#como">Cómo funciona</a><a href="#que-revisa">Qué revisa FukuOps</a><a href="#seguridad">Seguridad</a><a href="#piloto">Programa piloto</a><a href="#precios">Precios</a><a href="#fundador">Quién está detrás</a><a href="#proposito">Misión, visión y valores</a><a href="#asesoria">Asesoría</a><a href="#erp">ERP y sistemas</a><a href="#proyeccion">Lo que viene</a><a href="#faq">Preguntas frecuentes</a><a href="#postular">Contacto</a></div>
       <a class="btn sm" href="#postular">Postular al piloto</a>
     </div>
   </div>
