@@ -188,6 +188,25 @@ footer a{color:inherit}
 .path .pfu > span:last-child{color:var(--on-dark-muted)}
 .flink{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:14px;font-weight:600;color:var(--gold-d)}
 .flink-d{color:var(--gold)!important}
+.pd{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.pd summary{cursor:pointer;list-style:none;font-size:14px;font-weight:600;color:var(--gold-d);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pd summary::-webkit-details-marker{display:none}
+.pd summary::after{content:"+";font-size:18px;line-height:1}
+.pd[open] summary::after{content:"–"}
+.pd ul{margin:10px 0 0;padding-left:18px;font-size:13.5px;color:var(--muted)}
+.pd li{margin-bottom:4px}
+.ideal{margin-top:8px;font-size:13px;color:var(--muted)}.ideal b{color:var(--ink)}
+.plans{align-items:start}
+details.prow{display:block;padding:0}
+details.prow summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto 20px;gap:16px;align-items:center;padding:16px 22px}
+details.prow summary::-webkit-details-marker{display:none}
+details.prow summary:hover{background:#FCF9F2}
+.psum b{display:block;font-weight:600}.psum span{color:var(--muted);font-size:14.5px}
+.pchev{width:10px;height:10px;border-right:2px solid var(--gold-d);border-bottom:2px solid var(--gold-d);transform:rotate(45deg);transition:transform .2s;justify-self:end}
+details.prow[open] .pchev{transform:rotate(-135deg)}
+details.prow[open] summary{background:#FCF9F2}
+.dd{margin:0;padding:4px 22px 18px;display:grid;grid-template-columns:140px 1fr;gap:8px 16px;background:#FCF9F2;font-size:14.5px}
+.dd dt{font-weight:600;color:var(--gold-d)}.dd dd{margin:0;color:var(--ink)}
 /* nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);border-bottom:1px solid #2C3844}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:21}
@@ -377,6 +396,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 }
 @media (max-width:900px){.path{grid-template-columns:1fr;gap:14px}.path li:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-12px;transform:translateX(-50%) rotate(135deg)}}
 @media (max-width:640px){.path{margin-top:24px}.path li{padding:18px}.path b{font-size:17px}.flink{font-size:13.5px}}
+@media (max-width:640px){
+  details.prow summary{grid-template-columns:1fr 16px;padding:14px 16px;gap:4px 10px}
+  details.prow .psum{grid-column:1/2}
+  details.prow .pv{grid-column:1/2;grid-row:2;text-align:left}
+  details.prow .pchev{grid-column:2;grid-row:1/3}
+  .dd{grid-template-columns:1fr;gap:2px;padding:4px 16px 16px;font-size:14px}
+  .dd dd{margin-bottom:8px}
+  .pd summary{font-size:13px}
+  .plans .plan:has(.pd[open]){grid-column:1/-1}
+}
 </style>
 </head>
 <body>
@@ -567,29 +596,29 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
     <h3 class="ptitle">Plataforma FukuOps <small>mensual, según facturas recibidas</small></h3>
     <div class="plans">
-      <div class="plan"><h3>Básico</h3><div class="vol">Hasta 50 facturas</div><div class="price">$9.990 <small>/mes</small></div><div class="reg">Precio regular: $14.990</div></div>
-      <div class="plan hl"><span class="pop">Recomendado</span><h3>Pyme</h3><div class="vol">51 a 150 facturas</div><div class="price">$16.990 <small>/mes</small></div><div class="reg">Precio regular: $24.990</div></div>
-      <div class="plan"><h3>Pro</h3><div class="vol">151 a 400 facturas</div><div class="price">$27.990 <small>/mes</small></div><div class="reg">Precio regular: $39.990</div></div>
-      <div class="plan"><h3>Alto volumen</h3><div class="vol">Más de 400 facturas</div><div class="price"><small>desde</small> $44.990</div><div class="reg">Precio regular: desde $59.990</div></div>
+      <div class="plan"><h3>Básico</h3><div class="vol">Hasta 50 facturas</div><div class="price">$9.990 <small>/mes</small></div><div class="reg">Precio regular: $14.990</div><details class="pd"><summary>Ver qué incluye</summary><ul><li>Control del plazo de 8 días para reclamar</li><li>Cruce con órdenes de compra, guías y recepciones</li><li>Detección de cobros duplicados</li><li>Contabilización e IVA del período</li><li>Alertas de pagos a 30 días</li><li>Informe mensual en Excel</li><li>Soporte por WhatsApp y correo</li></ul><p class="ideal"><b>Ideal para:</b> Emprendedores y pymes pequeñas que reciben hasta 50 facturas al mes.</p></details></div>
+      <div class="plan hl"><span class="pop">Recomendado</span><h3>Pyme</h3><div class="vol">51 a 150 facturas</div><div class="price">$16.990 <small>/mes</small></div><div class="reg">Precio regular: $24.990</div><details class="pd"><summary>Ver qué incluye</summary><ul><li>Control del plazo de 8 días para reclamar</li><li>Cruce con órdenes de compra, guías y recepciones</li><li>Detección de cobros duplicados</li><li>Contabilización e IVA del período</li><li>Alertas de pagos a 30 días</li><li>Informe mensual en Excel</li><li>Soporte por WhatsApp y correo</li><li>Reunión trimestral de revisión de resultados</li></ul><p class="ideal"><b>Ideal para:</b> Pymes con compras frecuentes y órdenes de compra o guías de despacho.</p></details></div>
+      <div class="plan"><h3>Pro</h3><div class="vol">151 a 400 facturas</div><div class="price">$27.990 <small>/mes</small></div><div class="reg">Precio regular: $39.990</div><details class="pd"><summary>Ver qué incluye</summary><ul><li>Control del plazo de 8 días para reclamar</li><li>Cruce con órdenes de compra, guías y recepciones</li><li>Detección de cobros duplicados</li><li>Contabilización e IVA del período</li><li>Alertas de pagos a 30 días</li><li>Informe mensual en Excel</li><li>Soporte prioritario</li><li>Reunión mensual de revisión de 30 minutos</li></ul><p class="ideal"><b>Ideal para:</b> Empresas con varios proveedores y alto movimiento de compras.</p></details></div>
+      <div class="plan"><h3>Alto volumen</h3><div class="vol">Más de 400 facturas</div><div class="price"><small>desde</small> $44.990</div><div class="reg">Precio regular: desde $59.990</div><details class="pd"><summary>Ver qué incluye</summary><ul><li>Control del plazo de 8 días para reclamar</li><li>Cruce con órdenes de compra, guías y recepciones</li><li>Detección de cobros duplicados</li><li>Contabilización e IVA del período</li><li>Alertas de pagos a 30 días</li><li>Informe mensual en Excel</li><li>Soporte prioritario</li><li>Reunión mensual de revisión</li><li>Carga de datos asistida y reportes adaptados</li></ul><p class="ideal"><b>Ideal para:</b> Empresas con más de 400 facturas al mes o varias razones sociales. Se cotiza según volumen.</p></details></div>
     </div>
     <p class="fine">Todos los planes incluyen control de plazos, cruce con órdenes de compra y guías, detección de cobros duplicados, contabilización e IVA, e informe en Excel. El pago anual anticipado incluye 2 meses sin costo.</p>
 
     <h3 class="ptitle">Estudios contables</h3>
     <div class="extra">
-      <div class="plan"><div><h3>$6.990 <small class="sm">por empresa cliente al mes</small></h3><p class="vol">Precio preferente para estudios que administran varias empresas. Desde 5 empresas, la licencia del estudio no tiene costo.</p></div></div>
+      <div class="plan"><div><h3>$6.990 <small class="sm">por empresa cliente al mes</small></h3><p class="vol">Precio preferente para estudios que administran varias empresas. Desde 5 empresas, la licencia del estudio no tiene costo.</p><details class="pd"><summary>Ver qué incluye</summary><ul><li>Todas las funciones de la plataforma para cada empresa cliente</li><li>Informe mensual en Excel por empresa</li><li>Licencia del estudio sin costo desde 5 empresas</li><li>Soporte por WhatsApp y correo</li></ul><p class="ideal"><b>Ideal para:</b> estudios contables y contadores independientes que administran varias empresas.</p></details></div></div>
       <div class="plan"><div><h3>Programa piloto</h3><p class="vol">4 semanas sin costo con auditoría de facturas incluida. Sin contrato ni medio de pago. <a href="#piloto">Ver programa</a></p></div></div>
     </div>
 
-    <h3 class="ptitle">Asesoría y servicios <small>la primera reunión de diagnóstico no tiene costo</small></h3>
-    <div class="ptable" role="table">
-      <div class="prow" role="row"><div><b>Auditoría de facturas</b><span>Revisión de los últimos 3 meses con informe de observaciones</span></div><div class="pv">$59.990 <small>pago único</small></div></div>
-      <div class="prow" role="row"><div><b>Hora de asesoría</b><span>Finanzas, IVA, costos o procesos. Presencial en Copiapó o en línea</span></div><div class="pv">$19.990 <small>por hora</small></div></div>
-      <div class="prow" role="row"><div><b>Paquete de 5 horas</b><span>Para usar en un plazo de 3 meses</span></div><div class="pv">$84.990 <small>pago único</small></div></div>
-      <div class="prow" role="row"><div><b>Acompañamiento mensual</b><span>Reunión mensual, revisión de compras e IVA antes del F29 y flujo de caja</span></div><div class="pv"><small>desde</small> $49.990 <small>/mes</small></div></div>
-      <div class="prow" role="row"><div><b>Flujo de caja proyectado</b><span>Planilla a 30, 60 y 90 días adaptada a su empresa, con reunión de entrega</span></div><div class="pv"><small>desde</small> $69.990</div></div>
-      <div class="prow" role="row"><div><b>Formalización de empresa</b><span>Acompañamiento en constitución, inicio de actividades y facturación electrónica. No incluye gastos notariales ni de terceros</span></div><div class="pv"><small>desde</small> $49.990</div></div>
-      <div class="prow" role="row"><div><b>Diagnóstico de ERP</b><span>Revisión del uso de su sistema y de su cuadratura con el SII, con informe de mejoras</span></div><div class="pv"><small>desde</small> $69.990</div></div>
-      <div class="prow" role="row"><div><b>Apoyo en cambio de ERP</b><span>Preparación, depuración y cuadratura de datos antes y después de la migración</span></div><div class="pv">Cotización</div></div>
+    <h3 class="ptitle">Asesoría y servicios <small>toque cada servicio para ver el detalle</small></h3>
+    <div class="ptable">
+      <details class="prow"><summary><div class="psum"><b>Auditoría de facturas</b><span>Revisión de los últimos 3 meses con informe de observaciones</span></div><div class="pv">$59.990 <small>pago único</small></div><span class="pchev" aria-hidden="true"></span></summary><dl class="dd"><dt>Incluye</dt><dd>Revisión del registro de compras del SII de los últimos 3 meses frente a sus órdenes de compra, guías y contabilidad. Detección de cobros duplicados, diferencias de montos, facturas sin respaldo, plazos vencidos e IVA crédito no utilizado.</dd><dt>Entregable</dt><dd>Informe en Excel con cada observación y una reunión de 30 minutos para revisar resultados.</dd><dt>Plazo</dt><dd>5 días hábiles desde la recepción de los archivos.</dd><dt>Necesitamos</dt><dd>Registro de compras del SII y, si existen, listados de órdenes de compra o guías.</dd></dl></details>
+      <details class="prow"><summary><div class="psum"><b>Hora de asesoría</b><span>Finanzas, IVA, costos o procesos. Presencial en Copiapó o en línea</span></div><div class="pv">$19.990 <small>por hora</small></div><span class="pchev" aria-hidden="true"></span></summary><dl class="dd"><dt>Incluye</dt><dd>Sesión de 60 minutos sobre el tema que usted elija: finanzas, IVA, costos, procesos o uso de Excel.</dd><dt>Entregable</dt><dd>Resumen por escrito con las recomendaciones acordadas.</dd><dt>Modalidad</dt><dd>Presencial en Copiapó o en línea.</dd><dt>Ideal para</dt><dd>Consultas puntuales o una segunda opinión antes de tomar una decisión.</dd></dl></details>
+      <details class="prow"><summary><div class="psum"><b>Paquete de 5 horas</b><span>Para usar en un plazo de 3 meses</span></div><div class="pv">$84.990 <small>pago único</small></div><span class="pchev" aria-hidden="true"></span></summary><dl class="dd"><dt>Incluye</dt><dd>5 horas de asesoría para usar en sesiones de 60 minutos o en bloques, según lo necesite.</dd><dt>Vigencia</dt><dd>3 meses desde el pago.</dd><dt>Ahorro</dt><dd>Aproximadamente $15.000 frente a contratar 5 horas por separado.</dd><dt>Ideal para</dt><dd>Empresas que necesitan apoyo recurrente, pero no un acompañamiento mensual fijo.</dd></dl></details>
+      <details class="prow"><summary><div class="psum"><b>Acompañamiento mensual</b><span>Reunión mensual, revisión de compras e IVA antes del F29 y flujo de caja</span></div><div class="pv"><small>desde</small> $49.990 <small>/mes</small></div><span class="pchev" aria-hidden="true"></span></summary><dl class="dd"><dt>Incluye</dt><dd>Reunión mensual de 60 minutos, revisión de compras e IVA antes de la declaración del F29, actualización del flujo de caja y soporte por WhatsApp.</dd><dt>Entregable</dt><dd>Resumen mensual con alertas y tareas prioritarias.</dd><dt>Condiciones</dt><dd>Sin permanencia mínima. El valor final depende del tamaño de la empresa.</dd><dt>Ideal para</dt><dd>Pymes sin área de finanzas que quieren un apoyo constante.</dd></dl></details>
+      <details class="prow"><summary><div class="psum"><b>Flujo de caja proyectado</b><span>Planilla a 30, 60 y 90 días adaptada a su empresa, con reunión de entrega</span></div><div class="pv"><small>desde</small> $69.990</div><span class="pchev" aria-hidden="true"></span></summary><dl class="dd"><dt>Incluye</dt><dd>Planilla en Excel con ingresos, pagos, créditos e impuestos proyectados a 30, 60 y 90 días, adaptada a su empresa.</dd><dt>Entregable</dt><dd>Planilla lista para usar y reunión de entrega con capacitación para actualizarla.</dd><dt>Plazo</dt><dd>5 a 7 días hábiles desde la recepción de la información.</dd><dt>Ideal para</dt><dd>Empresas que necesitan anticipar faltas de caja o preparar una solicitud de crédito.</dd></dl></details>
+      <details class="prow"><summary><div class="psum"><b>Formalización de empresa</b><span>Acompañamiento en constitución, inicio de actividades y facturación electrónica. No incluye gastos notariales ni de terceros</span></div><div class="pv"><small>desde</small> $49.990</div><span class="pchev" aria-hidden="true"></span></summary><dl class="dd"><dt>Incluye</dt><dd>Orientación para constituir la empresa, inicio de actividades en el SII, habilitación de la facturación electrónica y lista de obligaciones del primer año.</dd><dt>Entregable</dt><dd>Empresa con inicio de actividades y facturación electrónica habilitada, y calendario de obligaciones.</dd><dt>No incluye</dt><dd>Gastos notariales, patente municipal ni honorarios de terceros.</dd><dt>Ideal para</dt><dd>Emprendedores que inician su empresa o personas que pasan a operar como empresa.</dd></dl></details>
+      <details class="prow"><summary><div class="psum"><b>Diagnóstico de ERP</b><span>Revisión del uso de su sistema y de su cuadratura con el SII, con informe de mejoras</span></div><div class="pv"><small>desde</small> $69.990</div><span class="pchev" aria-hidden="true"></span></summary><dl class="dd"><dt>Incluye</dt><dd>Revisión de cómo usa hoy su sistema y cuadratura de un mes de su ERP frente al registro de compras y ventas del SII.</dd><dt>Entregable</dt><dd>Informe con diferencias encontradas y mejoras priorizadas, y reunión de revisión.</dd><dt>Plazo</dt><dd>5 a 10 días hábiles según el tamaño de la empresa.</dd><dt>Ideal para</dt><dd>Empresas con diferencias entre su sistema y el SII o con funciones del ERP sin aprovechar.</dd></dl></details>
+      <details class="prow"><summary><div class="psum"><b>Apoyo en cambio de ERP</b><span>Preparación, depuración y cuadratura de datos antes y después de la migración</span></div><div class="pv">Cotización</div><span class="pchev" aria-hidden="true"></span></summary><dl class="dd"><dt>Incluye</dt><dd>Levantamiento de la información a migrar, plantillas de carga, depuración de datos y cuadratura de saldos antes y después del cambio.</dd><dt>No incluye</dt><dd>Licencias ni implementación del nuevo ERP, que corresponden a su proveedor.</dd><dt>Valor</dt><dd>Se cotiza según la cantidad de datos y sistemas involucrados.</dd><dt>Ideal para</dt><dd>Empresas que cambiarán de sistema y quieren evitar errores en la migración.</dd></dl></details>
     </div>
     <p class="fine">Valores referenciales más IVA. Los servicios con valor «desde» se cotizan según el tamaño de la empresa y el alcance acordado, que se informa por escrito antes de comenzar.</p>
     <div class="refnote"><b>Precios referenciales.</b> Los valores publicados son una referencia. El precio final puede variar según la realidad de cada empresa o consultante: volumen de documentos, número de razones sociales o sucursales, sistemas utilizados, complejidad del caso y modalidad de atención. Antes de iniciar cualquier servicio, entregamos una propuesta por escrito con el alcance y el valor acordado.</div>
