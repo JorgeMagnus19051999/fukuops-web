@@ -557,10 +557,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     </div>
     <form id="fpiloto" class="fcard" novalidate>
       <fieldset class="interes"><legend>Motivo de su solicitud *</legend>
-        <label><input type="radio" name="Interés" value="Piloto gratis" checked> Programa piloto</label>
+        <label><input type="radio" name="Interés" value="Programa piloto" checked> Programa piloto</label>
         <label><input type="radio" name="Interés" value="Asesoría"> Asesoría</label>
         <label><input type="radio" name="Interés" value="ERP y sistemas"> ERP y sistemas</label>
-        <label><input type="radio" name="Interés" value="Varias cosas"> Más de una opción</label>
+        <label><input type="radio" name="Interés" value="Varios servicios"> Varios servicios</label>
         <label><input type="radio" name="Interés" value="Consulta o sugerencia"> Consulta o sugerencia</label>
       </fieldset>
       <p class="fhint" id="fhint"></p>
@@ -740,15 +740,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <script>
 (function(){
   var f=document.getElementById('fpiloto'),b=document.getElementById('fbtn'),m=document.getElementById('fmsg'),h=document.getElementById('fhint');
-  var hints={'Piloto gratis':'Cuatro semanas sin costo utilizando FukuOps con las facturas reales de su empresa.','Asesoría':'Indíquenos su necesidad y le propondremos un diagnóstico sin costo.','ERP y sistemas':'Indique los sistemas que utiliza y la situación que desea resolver. El diagnóstico inicial no tiene costo.','Varias cosas':'Complete las secciones que correspondan.','Consulta o sugerencia':'Para consultas, sugerencias o propuestas de colaboración.'};
-  var show={'Piloto gratis':['piloto'],'Asesoría':['asesoria'],'ERP y sistemas':['erp'],'Varias cosas':['empresa','piloto','asesoria','erp'],'Consulta o sugerencia':['contacto']};
-  ['Piloto gratis','Asesoría','ERP y sistemas'].forEach(function(k){show[k]=['empresa'].concat(show[k]);});
+  var hints={'Programa piloto':'Cuatro semanas sin costo utilizando FukuOps con las facturas reales de su empresa.','Asesoría':'Indíquenos su necesidad y le propondremos un diagnóstico sin costo.','ERP y sistemas':'Indique los sistemas que utiliza y la situación que desea resolver. El diagnóstico inicial no tiene costo.','Varios servicios':'Complete las secciones que correspondan.','Consulta o sugerencia':'Para consultas, sugerencias o propuestas de colaboración.'};
+  var show={'Programa piloto':['piloto'],'Asesoría':['asesoria'],'ERP y sistemas':['erp'],'Varios servicios':['empresa','piloto','asesoria','erp'],'Consulta o sugerencia':['contacto']};
+  ['Programa piloto','Asesoría','ERP y sistemas'].forEach(function(k){show[k]=['empresa'].concat(show[k]);});
   var wa=document.getElementById('fwa');
   var mig=document.getElementById('chkMig'),mb=document.getElementById('migbox');
   function migmode(){var on=mig.checked&&!mb.closest('[data-for]').hidden;mb.hidden=!mig.checked;mb.querySelectorAll('[data-mreq]').forEach(function(el){el.required=on;});}
   mig.addEventListener('change',migmode);
   function mode(){
-    var v=(f.querySelector('input[name="Interés"]:checked')||{}).value||'Piloto gratis';
+    var v=(f.querySelector('input[name="Interés"]:checked')||{}).value||'Programa piloto';
     var list=show[v]||['piloto'];
     f.querySelectorAll('[data-for]').forEach(function(sec){
       var on=list.indexOf(sec.dataset.for)>-1; sec.hidden=!on;
@@ -790,7 +790,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 </script>
 <script>
 document.querySelectorAll('[data-interes]').forEach(function(a){a.addEventListener('click',function(){window.fkSetInteres&&window.fkSetInteres(a.dataset.interes);});});
-document.querySelectorAll('a[href="#postular"]:not([data-interes])').forEach(function(a){a.addEventListener('click',function(){window.fkSetInteres&&window.fkSetInteres('Piloto gratis');});});
+document.querySelectorAll('a[href="#postular"]:not([data-interes])').forEach(function(a){a.addEventListener('click',function(){window.fkSetInteres&&window.fkSetInteres('Programa piloto');});});
 </script>
 
 </body>
