@@ -158,6 +158,16 @@ footer a{color:inherit}
   .wafloat{bottom:calc(78px + env(safe-area-inset-bottom,0px))}
   footer{padding-bottom:90px}
 }
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+.mvc{background:var(--navy2);border:1px solid #33404C;border-radius:16px;padding:30px;min-width:0}
+.mvl{font:700 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.mvc p{font-size:19px;line-height:1.55;color:var(--on-dark)}
+.vals{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:28px}
+.vals div{border-top:3px solid var(--gold);padding-top:14px;min-width:0}
+.vals b{display:block;font-family:"Space Grotesk",sans-serif;font-size:18px;margin-bottom:6px}
+.vals span{color:var(--on-dark-muted);font-size:14.5px}
+@media (max-width:900px){.vals{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.mv,.vals{grid-template-columns:1fr}}
 /* nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);border-bottom:1px solid #2C3844}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:21}
@@ -497,6 +507,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <p class="lead">Ingeniero comercial e ingeniero en administración de empresas, mención Finanzas. Fundó FukuOps en Copiapó tras constatar las pérdidas que sufren las pymes por facturas que no alcanzan a ser revisadas.</p>
       <p class="lead" style="margin-top:14px">Cuenta con asesores en finanzas, gestión de clientes y comunicación, y atiende personalmente a cada empresa del piloto.</p>
       <div class="ctas"><a class="btn ghost-d" href="https://www.linkedin.com/in/jorge-alvarez-6707631aa">Ver perfil en LinkedIn</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band dark" id="proposito">
+  <div class="wrap">
+    <div class="eyebrow">Nuestro propósito</div>
+    <h2>Misión, visión y valores</h2>
+    <div class="mv">
+      <div class="mvc"><div class="mvl">Misión</div><p>Ayudar a las pymes de Chile a controlar sus facturas, plazos y pagos con herramientas simples y asesoría cercana, para que no pierdan dinero por errores que se pueden evitar.</p></div>
+      <div class="mvc"><div class="mvl">Visión</div><p>Ser la plataforma de referencia en Chile para el control de compras y pagos de las pymes, desarrollada desde regiones y construida junto a sus usuarios.</p></div>
+    </div>
+    <div class="vals">
+      <div><b>Transparencia</b><span>Precios publicados y propuestas por escrito, con alcance y valor definidos antes de comenzar.</span></div>
+      <div><b>Confidencialidad</b><span>No solicitamos su clave tributaria y no compartimos ni comercializamos la información de nuestros clientes.</span></div>
+      <div><b>Rigor</b><span>Cada observación que entregamos se respalda en documentos y cifras verificables.</span></div>
+      <div><b>Cercanía</b><span>Atención directa del equipo fundador, presencial en Copiapó y en línea en todo Chile.</span></div>
+      <div><b>Mejora continua</b><span>La plataforma evoluciona con las sugerencias de las empresas que la utilizan.</span></div>
     </div>
   </div>
 </section>
