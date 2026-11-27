@@ -98,6 +98,7 @@ section,header{scroll-margin-top:72px}
 .areas legend{font-size:14px;font-weight:600;margin-bottom:8px;padding:0}
 .fcard .areas label{flex-direction:row;align-items:center;gap:8px;font-weight:400;color:var(--ink);font-size:15px}
 .fcard .areas input{width:auto;margin:0;accent-color:#9A7A3C}
+.migbox{display:flex;flex-direction:column;gap:16px;background:var(--cream);border:1px dashed var(--gold);border-radius:12px;padding:18px}.migbox[hidden]{display:none!important}
 @media (max-width:900px){.svc,.howto{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.svc,.howto,.areas{grid-template-columns:1fr}}
 .erpgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;margin-top:40px}
@@ -377,6 +378,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
           <li>Diagnóstico de cómo usas tu ERP hoy y qué estás dejando de aprovechar</li>
           <li>Cuadratura entre tu ERP y el registro de compras y ventas del SII</li>
           <li>Unir datos de distintos sistemas o sucursales en un solo reporte</li>
+          <li>Cambio de un ERP a otro: preparamos, limpiamos y cuadramos tus datos antes y después de migrar</li>
           <li>Planillas de carga y limpieza de datos para importar información sin errores</li>
           <li>Reportes automáticos en Excel a partir de las exportaciones de tu ERP</li>
           <li>Capacitación práctica para tu equipo</li>
@@ -394,7 +396,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <p class="gnote">Si necesitas un cambio de sistema, te ayudamos a preparar tus datos y a evaluar opciones.</p>
       </div>
     </div>
-    <div class="ctas"><a class="btn" href="#postular" data-interes="Asesoría">Contar mi caso</a></div>
+    <div class="ctas"><a class="btn" href="#postular" data-interes="ERP y sistemas">Contar mi caso de ERP</a></div>
   </div>
 </section>
 
@@ -556,7 +558,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <fieldset class="interes"><legend>¿Qué necesitas? *</legend>
         <label><input type="radio" name="Interés" value="Piloto gratis" checked> Piloto gratis</label>
         <label><input type="radio" name="Interés" value="Asesoría"> Asesoría</label>
-        <label><input type="radio" name="Interés" value="Piloto y asesoría"> Ambos</label>
+        <label><input type="radio" name="Interés" value="ERP y sistemas"> ERP y sistemas</label>
+        <label><input type="radio" name="Interés" value="Varias cosas"> Varias cosas</label>
       </fieldset>
       <p class="fhint" id="fhint"></p>
 
@@ -604,7 +607,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
           <label><input type="checkbox" value="Costos y presupuesto"> Costos y presupuesto</label>
           <label><input type="checkbox" value="Formalizar mi empresa"> Formalizar mi empresa</label>
           <label><input type="checkbox" value="Procesos, Excel y reportes"> Procesos, Excel y reportes</label>
-          <label><input type="checkbox" value="ERP y sistemas"> ERP y sistemas</label>
           <label><input type="checkbox" value="Otro"> Otro</label>
         </fieldset>
         <div class="frow">
@@ -624,6 +626,63 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
           </label>
         </div>
         <label>Cuéntanos qué necesitas *<textarea name="Necesidad de asesoría" rows="3" data-req placeholder="Ej.: quiero saber cuánta plata voy a tener el próximo mes, ordenar mis pagos a proveedores…"></textarea></label>
+      </div>
+
+      <div data-for="erp">
+        <div class="fsec">Para tu ERP</div>
+        <fieldset class="areas" data-group="erpsys"><legend>¿Qué sistemas usas hoy? *</legend>
+          <label><input type="checkbox" value="Softland"> Softland</label>
+          <label><input type="checkbox" value="Defontana"> Defontana</label>
+          <label><input type="checkbox" value="Nubox"> Nubox</label>
+          <label><input type="checkbox" value="SAP Business One"> SAP Business One</label>
+          <label><input type="checkbox" value="iConstruye"> iConstruye</label>
+          <label><input type="checkbox" value="Manager"> Manager</label>
+          <label><input type="checkbox" value="Solo Excel"> Solo Excel</label>
+          <label><input type="checkbox" value="Otro ERP"> Otro</label>
+        </fieldset>
+        <label>¿Cuál? (si marcaste Otro)<input name="Otro sistema" placeholder="Nombre del sistema"></label>
+        <fieldset class="areas" data-group="erpprob"><legend>¿Qué problema tienes? *</legend>
+          <label><input type="checkbox" value="Cambio de un ERP a otro" id="chkMig"> Quiero cambiarme de ERP</label>
+          <label><input type="checkbox" value="Sistemas que no se conectan"> Tengo sistemas que no se conectan</label>
+          <label><input type="checkbox" value="No cuadra con el SII"> El ERP no cuadra con el SII</label>
+          <label><input type="checkbox" value="Datos duplicados o con errores"> Datos duplicados o con errores</label>
+          <label><input type="checkbox" value="Mucha digitación manual"> Mucha digitación a mano</label>
+          <label><input type="checkbox" value="Reportes que no sirven"> Los reportes no me sirven</label>
+          <label><input type="checkbox" value="No lo usamos bien"> No sabemos usarlo bien</label>
+          <label><input type="checkbox" value="Otro problema"> Otro</label>
+        </fieldset>
+        <div id="migbox" class="migbox" hidden>
+          <div class="fsec" style="border:0;padding:0">Cambio de ERP</div>
+          <div class="frow">
+            <label>¿Desde qué sistema? *<input name="ERP de origen" data-mreq placeholder="Ej.: Excel, Softland…"></label>
+            <label>¿Hacia qué sistema?<input name="ERP de destino" placeholder="Ej.: Defontana, o aún no sé"></label>
+          </div>
+          <fieldset class="areas" data-group="migdata"><legend>¿Qué información hay que pasar?</legend>
+            <label><input type="checkbox" value="Clientes"> Clientes</label>
+            <label><input type="checkbox" value="Proveedores"> Proveedores</label>
+            <label><input type="checkbox" value="Productos e inventario"> Productos e inventario</label>
+            <label><input type="checkbox" value="Plan de cuentas"> Plan de cuentas</label>
+            <label><input type="checkbox" value="Saldos iniciales"> Saldos iniciales</label>
+            <label><input type="checkbox" value="Documentos históricos"> Documentos históricos</label>
+          </fieldset>
+          <div class="frow">
+            <label>¿Para cuándo?
+              <select name="Fecha del cambio"><option value="">Elige una opción</option><option>Ya empezó</option><option>Este mes</option><option>En 1 a 3 meses</option><option>Más adelante</option><option>Aún no decido si cambiarme</option></select>
+            </label>
+            <label>¿Quién hace el cambio?
+              <select name="Quién migra"><option value="">Elige una opción</option><option>El proveedor del nuevo ERP</option><option>Nosotros mismos</option><option>Aún no lo sabemos</option></select>
+            </label>
+          </div>
+        </div>
+        <div class="frow">
+          <label>Personas que usan el sistema
+            <select name="Usuarios del ERP"><option value="">Elige una opción</option><option>1</option><option>2 a 5</option><option>6 a 20</option><option>Más de 20</option></select>
+          </label>
+          <label>¿Tienes varias sucursales o empresas?
+            <select name="Sucursales o empresas"><option value="">Elige una opción</option><option>No, una sola</option><option>Sí, varias sucursales</option><option>Sí, varias empresas</option></select>
+          </label>
+        </div>
+        <label>Cuéntanos tu caso *<textarea name="Caso ERP" rows="3" data-req placeholder="Ej.: llevamos ventas en un sistema y la contabilidad en otro, y a fin de mes nada cuadra…"></textarea></label>
       </div>
 
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -665,23 +724,31 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <script>
 (function(){
   var f=document.getElementById('fpiloto'),b=document.getElementById('fbtn'),m=document.getElementById('fmsg'),h=document.getElementById('fhint');
-  var hints={'Piloto gratis':'4 semanas gratis probando FukuOps con tus facturas reales.','Asesoría':'Cuéntanos tu necesidad y te proponemos un diagnóstico sin costo.','Piloto y asesoría':'Probamos la plataforma y además te asesoramos.'};
+  var hints={'Piloto gratis':'4 semanas gratis probando FukuOps con tus facturas reales.','Asesoría':'Cuéntanos tu necesidad y te proponemos un diagnóstico sin costo.','ERP y sistemas':'Cuéntanos qué sistemas usas y qué problema tienes. El primer diagnóstico no tiene costo.','Varias cosas':'Completa las partes que te interesen.'};
+  var show={'Piloto gratis':['piloto'],'Asesoría':['asesoria'],'ERP y sistemas':['erp'],'Varias cosas':['piloto','asesoria','erp']};
+  var mig=document.getElementById('chkMig'),mb=document.getElementById('migbox');
+  function migmode(){var on=mig.checked&&!mb.closest('[data-for]').hidden;mb.hidden=!mig.checked;mb.querySelectorAll('[data-mreq]').forEach(function(el){el.required=on;});}
+  mig.addEventListener('change',migmode);
   function mode(){
     var v=(f.querySelector('input[name="Interés"]:checked')||{}).value||'Piloto gratis';
-    var showP=v!=='Asesoría', showA=v!=='Piloto gratis';
+    var list=show[v]||['piloto'];
     f.querySelectorAll('[data-for]').forEach(function(sec){
-      var on=(sec.dataset.for==='piloto')?showP:showA; sec.hidden=!on;
+      var on=list.indexOf(sec.dataset.for)>-1; sec.hidden=!on;
       sec.querySelectorAll('[data-req]').forEach(function(el){el.required=on;});
     });
     h.textContent=hints[v]||'';
-    b.textContent=v==='Asesoría'?'Pedir diagnóstico':'Enviar solicitud';
+    b.textContent=(v==='Asesoría'||v==='ERP y sistemas')?'Pedir diagnóstico':'Enviar solicitud';
+    migmode();
   }
   window.fkSetInteres=function(v){var r=f.querySelector('input[name="Interés"][value="'+v+'"]');if(r){r.checked=true;mode();}};
   f.querySelectorAll('input[name="Interés"]').forEach(function(r){r.addEventListener('change',mode);}); mode();
   f.addEventListener('submit',function(e){
     e.preventDefault(); m.className='fmsg'; m.textContent='';
-    var areasBox=f.querySelector('[data-for="asesoria"]'), areas=[].map.call(f.querySelectorAll('.areas input:checked'),function(x){return x.value;});
-    if(!areasBox.hidden && !areas.length){m.className='fmsg err';m.textContent='Elige al menos un área de asesoría.';return;}
+    function pick(sel){return [].map.call(f.querySelectorAll(sel+' input:checked'),function(x){return x.value;});}
+    var aBox=f.querySelector('[data-for="asesoria"]'),eBox=f.querySelector('[data-for="erp"]');
+    var areas=pick('[data-for="asesoria"] .areas'),sys=pick('[data-group="erpsys"]'),prob=pick('[data-group="erpprob"]'),mdat=pick('[data-group="migdata"]');
+    if(!aBox.hidden && !areas.length){m.className='fmsg err';m.textContent='Elige al menos un área de asesoría.';return;}
+    if(!eBox.hidden && (!sys.length||!prob.length)){m.className='fmsg err';m.textContent='Marca qué sistemas usas y qué problema tienes.';return;}
     if(!f.checkValidity()){m.className='fmsg err';m.textContent='Completa los campos con * y acepta la autorización.';f.reportValidity&&f.reportValidity();return;}
     var d={};
     [].forEach.call(f.elements,function(el){
@@ -689,7 +756,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       if((el.type==='radio'||el.type==='checkbox')&&!el.checked)return;
       if(el.value!=='')d[el.name]=el.value;
     });
-    if(areas.length)d['Áreas de asesoría']=areas.join(', ');
+    if(!aBox.hidden&&areas.length)d['Áreas de asesoría']=areas.join(', ');
+    if(!eBox.hidden){d['Sistemas que usa']=sys.join(', ');d['Problema con el ERP']=prob.join(', ');if(!mb.hidden&&mdat.length)d['Datos a migrar']=mdat.join(', ');}
     d._subject=(d['Interés']||'Contacto')+' · '+(d.Empresa||''); d._template='table'; d._replyto=d.email;
     var label=b.textContent; b.disabled=true; b.textContent='Enviando…';
     fetch('https://formsubmit.co/ajax/contacto.fukuops@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
