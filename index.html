@@ -54,6 +54,27 @@ h2{font-size:clamp(28px,4vw,40px);margin-bottom:16px}
 .rstep li{color:var(--muted);font-size:15px;margin-bottom:6px}
 @media (max-width:640px){.give,.road{grid-template-columns:1fr}}
 section,header{scroll-margin-top:72px}
+.formgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+.why{margin:24px 0 0;padding-left:20px;color:var(--ink)}.why li{margin-bottom:6px}
+.fcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fcard label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:var(--ink);min-width:0}
+.fcard input,.fcard select,.fcard textarea{font:400 16px Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:11px 12px;width:100%}
+.fcard input:focus,.fcard select:focus,.fcard textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.fcard .consent{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;color:var(--muted)}
+.fcard .consent input{width:auto;margin-top:3px}
+.fcard .btn{align-self:flex-start}
+.fcard .btn[disabled]{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.fmsg{font-size:15px;min-height:1px}.fmsg.ok{color:#2E7D5B;font-weight:600}.fmsg.err{color:#B3261E}
+.falt{font-size:14px;color:var(--muted)}
+@media (max-width:900px){.formgrid{grid-template-columns:1fr}}
+@media (max-width:640px){.frow{grid-template-columns:1fr}}
+.interes{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
+.interes legend{font-size:14px;font-weight:600;margin-bottom:8px;padding:0}
+.fcard .interes label{flex-direction:row;align-items:center;gap:8px;font-weight:500;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
+.fcard .interes input{width:auto;margin:0;accent-color:#9A7A3C}
+.fcard .interes label:has(input:checked){border-color:var(--gold);background:#F6EBD3}
 /* nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);border-bottom:1px solid #2C3844}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:21}
@@ -170,7 +191,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 </head>
 <body>
 
-<div class="annc"><div class="wrap"><span class="dot"></span><span><b>Piloto abierto:</b> 6 cupos gratis para pymes y estudios contables.</span> <a href="#piloto">Postula aquí →</a></div></div>
+<div class="annc"><div class="wrap"><span class="dot"></span><span><b>Piloto abierto:</b> 6 cupos gratis para pymes y estudios contables.</span> <a href="#postular">Postula aquí →</a></div></div>
 
 <nav>
   <div class="wrap">
@@ -179,8 +200,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <a href="#como">Cómo funciona</a>
       <a href="#precios">Precios</a>
       <a href="#piloto">Piloto</a>
+      <a href="#asesoria">Asesoría</a>
       <a href="#proyeccion">Lo que viene</a>
-      <a class="btn sm" href="#piloto">Postular al piloto</a>
+      <a class="btn sm" href="#postular">Postular al piloto</a>
     </div>
   </div>
 </nav>
@@ -192,7 +214,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <h1>Cada factura que recibes tiene <em>8 días</em> para ser reclamada. Después, es tuya.</h1>
       <p class="lead">FukuOps cruza tu registro de compras del SII con tus órdenes de compra, guías, recepciones y contabilidad. Te avisa qué factura revisar, cuál reclamar y cuál pagar, antes de que venza el plazo.</p>
       <div class="ctas">
-        <a class="btn" href="#piloto">Postular al piloto gratis</a>
+        <a class="btn" href="#postular">Postular al piloto gratis</a>
         <a class="btn ghost" href="https://youtu.be/e9cTNxUjYNA">▶ Ver demo (2 min)</a>
       </div>
       <p class="note">Para pymes chilenas y estudios contables · Hecho en Copiapó</p>
@@ -277,6 +299,21 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   </div>
 </section>
 
+<section class="band" id="asesoria">
+  <div class="wrap">
+    <div class="eyebrow">Asesoría</div>
+    <h2>Además de la plataforma, te acompañamos</h2>
+    <p class="lead">Si tu empresa necesita ordenar sus compras y pagos antes de automatizar, te asesoramos directamente. Trabajamos junto a tu contador, no en su reemplazo.</p>
+    <div class="road">
+      <div class="rstep now"><div class="rlabel">Compras y proveedores</div><h3>Orden en tus facturas</h3><ul><li>Proceso de recepción y revisión</li><li>Órdenes de compra y guías</li><li>Detección de cobros dobles</li></ul></div>
+      <div class="rstep now"><div class="rlabel">Reclamos e IVA</div><h3>Plazos y crédito fiscal</h3><ul><li>Reclamos y notas de crédito a tiempo</li><li>Cuadratura del registro de compras con tu contabilidad</li><li>IVA crédito que no estás usando</li></ul></div>
+      <div class="rstep now"><div class="rlabel">Pagos y caja</div><h3>Pagar bien y a tiempo</h3><ul><li>Calendario de pagos a 30 días</li><li>Prioridad de pagos por proveedor</li><li>Reportes simples para la gerencia</li></ul></div>
+    </div>
+    <div class="ctas"><a class="btn" href="#postular" data-interes="Asesoría contable">Pedir asesoría</a></div>
+    <p class="fine">La asesoría se cotiza según el tamaño de tu empresa y lo que necesites. La primera conversación no tiene costo.</p>
+  </div>
+</section>
+
 <section class="band sand" id="precios">
   <div class="wrap">
     <div class="eyebrow">Precios</div>
@@ -304,7 +341,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <h2>Sé de las primeras empresas en probar FukuOps, sin pagar nada</h2>
         <p class="lead">Durante 4 semanas revisamos tus facturas reales contigo. Si FukuOps no te ahorra tiempo o plata, no pagas nada y te quedas con el informe.</p>
         <div class="cupos" aria-label="Cupos del piloto"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><span>6 cupos disponibles</span></div>
-        <div class="ctas"><a class="btn" href="#contacto">Postular al piloto</a></div>
+        <div class="ctas"><a class="btn" href="#postular">Postular al piloto</a></div>
       </div>
       <ol class="timeline">
         <li><b>Semana 1 · Auditoría</b><span>Revisamos tus facturas recibidas y te entregamos el informe de fallas.</span></li>
@@ -377,6 +414,58 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   </div>
 </section>
 
+<section class="band sand" id="postular">
+  <div class="wrap formgrid">
+    <div>
+      <div class="eyebrow">Formulario de contacto</div>
+      <h2>Postula al piloto o pide asesoría</h2>
+      <p class="lead">Déjanos tus datos y te contactamos en menos de 48 horas hábiles para coordinar una llamada de 20 minutos.</p>
+      <ul class="why">
+        <li>Sin costo y sin contrato</li>
+        <li>No pedimos tu clave del SII</li>
+        <li>Solo 6 cupos de piloto en esta etapa</li>
+        <li>Asesoría a la medida de tu empresa</li>
+      </ul>
+    </div>
+    <form id="fpiloto" class="fcard" novalidate>
+      <fieldset class="interes"><legend>¿Qué te interesa? *</legend>
+        <label><input type="radio" name="Interés" value="Piloto gratis" required checked> Piloto gratis</label>
+        <label><input type="radio" name="Interés" value="Asesoría contable"> Asesoría</label>
+        <label><input type="radio" name="Interés" value="Piloto y asesoría"> Ambos</label>
+      </fieldset>
+      <div class="frow">
+        <label>Nombre y apellido *<input name="Nombre" required autocomplete="name"></label>
+        <label>Cargo<input name="Cargo" placeholder="Dueño, gerente, contador…" autocomplete="organization-title"></label>
+      </div>
+      <div class="frow">
+        <label>Empresa *<input name="Empresa" required autocomplete="organization"></label>
+        <label>Ciudad<input name="Ciudad" placeholder="Copiapó"></label>
+      </div>
+      <div class="frow">
+        <label>Correo *<input name="email" type="email" required autocomplete="email"></label>
+        <label>WhatsApp *<input name="WhatsApp" type="tel" required placeholder="+56 9 ..." autocomplete="tel"></label>
+      </div>
+      <div class="frow">
+        <label>Tipo *
+          <select name="Tipo" required><option value="">Elige una opción</option><option>Pyme</option><option>Estudio contable</option><option>Otro</option></select>
+        </label>
+        <label>Facturas recibidas al mes *
+          <select name="Facturas al mes" required><option value="">Elige una opción</option><option>Hasta 50</option><option>51 a 150</option><option>151 a 400</option><option>Más de 400</option><option>No sé</option></select>
+        </label>
+      </div>
+      <label>¿Qué usas para tu contabilidad?
+        <select name="Sistema contable"><option value="">Elige una opción</option><option>Excel o planillas</option><option>Nubox</option><option>Defontana</option><option>Softland</option><option>Otro ERP</option><option>Lo lleva un contador externo</option></select>
+      </label>
+      <label>¿Cuál es tu mayor problema con las facturas?<textarea name="Problema" rows="3" placeholder="Ej.: se nos pasan los plazos, pagamos facturas repetidas…"></textarea></label>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="consent"><input type="checkbox" name="Autoriza contacto" value="Sí" required> Autorizo a FukuOps a usar estos datos solo para contactarme por el piloto o la asesoría.</label>
+      <button class="btn" type="submit" id="fbtn">Enviar solicitud</button>
+      <p class="fmsg" id="fmsg" role="status" aria-live="polite"></p>
+      <p class="falt">¿Prefieres hablar directo? <a href="https://wa.me/56946599420">Escríbenos por WhatsApp</a></p>
+    </form>
+  </div>
+</section>
+
 <section class="band dark contact" id="contacto">
   <div class="wrap">
     <div class="eyebrow">Contacto</div>
@@ -386,6 +475,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <a class="btn" href="https://wa.me/56946599420?text=Hola%2C%20quiero%20postular%20al%20piloto%20de%20FukuOps.%20Mi%20empresa%20es%3A%20">Escribir por WhatsApp</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/jorge-alvarez-6707631aa">LinkedIn</a>
       <a class="btn ghost" href="https://www.youtube.com/@FukuOps">YouTube</a>
+      <a class="btn ghost" href="https://www.instagram.com/fukuops">Instagram</a>
     </div>
     <div class="cinfo">
       <span>WhatsApp: <b style="color:var(--on-dark);font-weight:500;user-select:all">+56 9 4659 9420</b></span>
@@ -399,9 +489,30 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <footer>
   <div class="wrap">
     <span>© 2026 FukuOps · El reloj de cada factura</span>
-    <span><a href="https://www.youtube.com/@FukuOps" style="color:inherit">YouTube</a> · <a href="https://www.linkedin.com/in/jorge-alvarez-6707631aa" style="color:inherit">LinkedIn</a> · fukuops.cl</span>
+    <span><a href="https://www.instagram.com/fukuops" style="color:inherit">Instagram</a> · <a href="https://www.youtube.com/@FukuOps" style="color:inherit">YouTube</a> · <a href="https://www.linkedin.com/in/jorge-alvarez-6707631aa" style="color:inherit">LinkedIn</a> · fukuops.cl</span>
   </div>
 </footer>
+
+<script>
+(function(){
+  var f=document.getElementById('fpiloto'),b=document.getElementById('fbtn'),m=document.getElementById('fmsg');
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); m.className='fmsg'; m.textContent='';
+    if(!f.checkValidity()){m.className='fmsg err';m.textContent='Completa los campos con * y acepta la autorización.';f.reportValidity&&f.reportValidity();return;}
+    var d={}; new FormData(f).forEach(function(v,k){d[k]=v;});
+    d._subject=(d['Interés']||'Contacto')+' · '+(d.Empresa||''); d._template='table'; d._replyto=d.email;
+    b.disabled=true; b.textContent='Enviando…';
+    fetch('https://formsubmit.co/ajax/contacto.fukuops@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)==='false')throw j;return j;});})
+      .then(function(){f.reset();m.className='fmsg ok';m.textContent='¡Listo! Recibimos tu solicitud. Te contactaremos en menos de 48 horas hábiles.';})
+      .catch(function(){m.className='fmsg err';m.innerHTML='No pudimos enviar el formulario. Escríbenos por <a href="https://wa.me/56946599420">WhatsApp</a> o a contacto.fukuops@gmail.com.';})
+      .finally(function(){b.disabled=false;b.textContent='Enviar solicitud';});
+  });
+})();
+</script>
+<script>
+document.querySelectorAll('[data-interes]').forEach(function(a){a.addEventListener('click',function(){var r=document.querySelector('input[name="Interés"][value="'+a.dataset.interes+'"]');if(r)r.checked=true;});});
+</script>
 
 </body>
 </html>
