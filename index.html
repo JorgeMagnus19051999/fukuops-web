@@ -19,7 +19,7 @@
 <title>FukuOps | Control de facturas SII y asesoría para pymes en Chile</title>
 <link rel="canonical" href="https://fukuops.cl/">
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Controle sus facturas del SII antes del plazo de 8 días, detecte cobros duplicados sin entregar su clave tributaria y ordene la gestión de su pyme. Copiapó y todo Chile.">
+<meta name="description" content="Controle sus facturas del SII antes del plazo de 8 días y detecte cobros duplicados, sin entregar su clave tributaria. Software y asesoría contable para pymes en Copiapó y todo Chile.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
 <style>
@@ -298,7 +298,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .timeline span{color:var(--on-dark-muted);font-size:15.5px}
 
 /* security */
-.sec{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.sec{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px}
+@media (max-width:1100px){.sec{grid-template-columns:1fr 1fr}}
 .sec div{border-top:3px solid var(--gold);padding-top:16px}
 .sec b{display:block;font-family:"Space Grotesk",sans-serif;font-size:19px;margin-bottom:6px}
 .sec span{color:var(--muted);font-size:15.5px}
@@ -451,6 +452,7 @@ footer{padding-bottom:96px!important}
         <a class="btn" href="#postular">Postular al piloto sin costo</a>
         <a class="btn ghost" href="#demo">▶ Ver demo (2 min)</a>
       </div>
+      <p class="note">¿Busca asesoría contable o apoyo con su ERP? <a href="#asesoria" style="color:var(--gold);font-weight:600">Conozca nuestros servicios →</a></p>
       <p class="note">Ideal para empresas que reciben más de 30 facturas al mes y trabajan con órdenes de compra o guías de despacho · Copiapó y todo Chile</p>
     </div>
     <div class="clock" aria-label="Ejemplo de facturas con su plazo">
@@ -490,7 +492,7 @@ footer{padding-bottom:96px!important}
       <div class="stat"><div class="n">58%</div><p>de las facturas en Chile se pagaron con atraso en 2025, pese a la ley de pago a 30 días.</p></div>
     </div>
     <div class="roi"><div class="roi-n">$500.000</div><p><b>Un solo cobro duplicado de $500.000 equivale a más de 4 años del plan Básico de FukuOps.</b> La auditoría del piloto le muestra, sin costo, cuánto dinero está en riesgo en las facturas de los últimos 3 meses.</p><a class="btn" href="#postular">Solicitar auditoría sin costo</a></div>
-    <p class="src">Fuentes: estadísticas del registro de compras y ventas del SII; estudios públicos de morosidad 2025.</p>
+    <p class="src">Fuentes: <a href="https://www.sii.cl/ayudas/ayudas_por_servicios/2004-estadisticas_cesion-2007.html" target="_blank" rel="noopener">estadísticas de acuse de recibo del SII</a>; estudios públicos de morosidad 2025.</p>
   </div>
 </section>
 
@@ -520,7 +522,7 @@ footer{padding-bottom:96px!important}
       <div class="step">
         <div class="num">PASO 2</div>
         <h3>Implementación</h3>
-        <p>Integramos la plataforma con sus planillas y su ERP. Desde ese momento, cada factura nueva se valida automáticamente y usted recibe las alertas que requieren revisión.</p>
+        <p>Usted carga el registro de compras del SII y las planillas que exporta su ERP (Excel o CSV). En cada carga, FukuOps valida las facturas nuevas y le muestra solo las que requieren revisión.</p>
       </div>
       <div class="step">
         <div class="num">PASO 3</div>
@@ -554,6 +556,7 @@ footer{padding-bottom:96px!important}
       <div><b>No solicitamos su clave del SII</b><span>Usted trabaja con los archivos que descarga. FukuOps no utiliza su clave tributaria ni su certificado digital.</span></div>
       <div><b>Solo lo necesario</b><span>Los datos de sus facturas se usan exclusivamente para su revisión. No se comparten ni se comercializan.</span></div>
       <div><b>Casos anónimos</b><span>No mostramos datos de clientes en demostraciones, videos o redes sociales sin autorización por escrito.</span></div>
+      <div><b>Archivos bajo resguardo</b><span>Los archivos se reciben por un canal acordado con usted, nunca por el formulario del sitio. Firmamos un acuerdo de confidencialidad si lo requiere y, al terminar, puede solicitar su eliminación.</span></div>
     </div>
   </div>
 </section>
@@ -579,7 +582,7 @@ footer{padding-bottom:96px!important}
       <div class="gcard">
         <h3>Lo que su empresa recibe</h3>
         <ul>
-          <li>Auditoría completa de facturas recibidas, sin costo</li>
+          <li>Auditoría de las facturas recibidas en los últimos 3 meses, sin costo</li>
           <li>Informe en Excel con cobros duplicados, diferencias y plazos vencidos</li>
           <li>4 semanas de uso de la plataforma sin costo</li>
           <li>Acompañamiento directo del fundador</li>
@@ -724,6 +727,7 @@ footer{padding-bottom:96px!important}
       <div class="gcard">
         <h3>Trabajamos con los sistemas que usted ya utiliza</h3>
         <div class="chips"><span>Softland</span><span>iConstruye</span><span>Excel</span><span>SII</span><span>Cualquier ERP que exporte a Excel o CSV</span></div>
+        <p class="gnote">Trabajamos con los archivos que exporta cada sistema. Por ahora no existe una conexión directa con ningún ERP.</p>
         <h3 style="margin-top:26px">Lo que no hacemos</h3>
         <ul>
           <li>No comercializamos ni reemplazamos su ERP</li>
@@ -803,12 +807,13 @@ footer{padding-bottom:96px!important}
     </div>
     <form id="fpiloto" class="fcard" novalidate>
       <fieldset class="interes"><legend>Motivo de su solicitud *</legend>
-        <label><input type="radio" name="Interés" value="Programa piloto" checked> Programa piloto</label>
-        <label><input type="radio" name="Interés" value="Asesoría"> Asesoría contable</label>
-        <label><input type="radio" name="Interés" value="ERP y sistemas"> Orden de ERP y sistemas</label>
-        <label><input type="radio" name="Interés" value="Consulta o sugerencia"> Otra consulta</label>
+        <label><input type="radio" name="Interés" value="Programa piloto" checked> Probar el software (programa piloto)</label>
+        <label><input type="radio" name="Interés" value="Asesoría"> Asesoría contable o financiera</label>
+        <label><input type="radio" name="Interés" value="ERP y sistemas"> Ayuda con mi ERP o sistemas</label>
+        <label><input type="radio" name="Interés" value="Consulta o sugerencia"> Otra consulta o sugerencia</label>
       </fieldset>
       <p class="fhint" id="fhint"></p>
+      <p class="fhint" style="margin-top:-4px">¿Necesita más de un servicio? Elija el principal y menciónenos el resto en su mensaje.</p>
 
       <div class="fsec">Datos de contacto</div>
       <div class="frow">
