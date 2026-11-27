@@ -545,7 +545,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   <div class="wrap formgrid">
     <div>
       <div class="eyebrow">Formulario de contacto</div>
-      <h2>Postula al piloto o pide asesoría</h2>
+      <h2>Postula, pide asesoría o escríbenos</h2>
       <p class="lead">Déjanos tus datos y te contactamos en menos de 48 horas hábiles para coordinar una llamada de 20 minutos.</p>
       <ul class="why">
         <li>Sin costo y sin contrato</li>
@@ -560,6 +560,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <label><input type="radio" name="Interés" value="Asesoría"> Asesoría</label>
         <label><input type="radio" name="Interés" value="ERP y sistemas"> ERP y sistemas</label>
         <label><input type="radio" name="Interés" value="Varias cosas"> Varias cosas</label>
+        <label><input type="radio" name="Interés" value="Consulta o sugerencia"> Consulta o sugerencia</label>
       </fieldset>
       <p class="fhint" id="fhint"></p>
 
@@ -570,19 +571,21 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       </div>
       <div class="frow">
         <label>Correo *<input name="email" type="email" required autocomplete="email"></label>
-        <label>WhatsApp *<input name="WhatsApp" type="tel" required placeholder="+56 9 ..." autocomplete="tel"></label>
+        <label>WhatsApp <span class="reqmark">*</span><input name="WhatsApp" type="tel" required id="fwa" placeholder="+56 9 ..." autocomplete="tel"></label>
       </div>
 
+      <div data-for="empresa">
       <div class="fsec">Tu empresa</div>
       <div class="frow">
-        <label>Empresa *<input name="Empresa" required autocomplete="organization"></label>
+        <label>Empresa *<input name="Empresa" data-req autocomplete="organization"></label>
         <label>Ciudad<input name="Ciudad" placeholder="Copiapó"></label>
       </div>
       <div class="frow">
         <label>Tipo *
-          <select name="Tipo" required><option value="">Elige una opción</option><option>Pyme</option><option>Estudio contable</option><option>Emprendedor o persona</option><option>Empresa por crear</option><option>Otro</option></select>
+          <select name="Tipo" data-req><option value="">Elige una opción</option><option>Pyme</option><option>Estudio contable</option><option>Emprendedor o persona</option><option>Empresa por crear</option><option>Otro</option></select>
         </label>
         <label>Rubro<input name="Rubro" placeholder="Comercio, construcción, transporte…"></label>
+      </div>
       </div>
 
       <div data-for="piloto">
@@ -685,8 +688,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <label>Cuéntanos tu caso *<textarea name="Caso ERP" rows="3" data-req placeholder="Ej.: llevamos ventas en un sistema y la contabilidad en otro, y a fin de mes nada cuadra…"></textarea></label>
       </div>
 
+      <div data-for="contacto">
+        <div class="fsec">Tu mensaje</div>
+        <div class="frow">
+          <label>Empresa u organización<input name="Organización" autocomplete="organization"></label>
+          <label>Tipo de mensaje *
+            <select name="Tipo de mensaje" data-req><option value="">Elige una opción</option><option>Pregunta</option><option>Sugerencia</option><option>Alianza o colaboración</option><option>Prensa o medios</option><option>Otro</option></select>
+          </label>
+        </div>
+        <label>Mensaje *<textarea name="Mensaje" rows="4" data-req placeholder="Escribe tu pregunta o sugerencia"></textarea></label>
+      </div>
+
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <label class="consent"><input type="checkbox" name="Autoriza contacto" value="Sí" required> Autorizo a FukuOps a usar estos datos solo para contactarme por esta solicitud.</label>
+      <label class="consent"><input type="checkbox" name="Autoriza contacto" value="Sí" required> Autorizo a FukuOps a usar estos datos solo para responder esta solicitud.</label>
       <button class="btn" type="submit" id="fbtn">Enviar solicitud</button>
       <p class="fmsg" id="fmsg" role="status" aria-live="polite"></p>
       <p class="falt">¿Prefieres hablar directo? <a href="https://wa.me/56946599420">Escríbenos por WhatsApp</a></p>
@@ -700,6 +714,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <h2>Postula al piloto o pide tu auditoría</h2>
     <p class="lead">Escríbenos con el nombre de tu empresa y cuántas facturas recibes al mes. En una llamada de 20 minutos vemos si FukuOps le sirve y reservamos tu cupo.</p>
     <div class="ctas">
+      <a class="btn ghost" href="#postular" data-interes="Consulta o sugerencia">Preguntas y sugerencias</a>
       <a class="btn" href="https://wa.me/56946599420?text=Hola%2C%20quiero%20postular%20al%20piloto%20de%20FukuOps.%20Mi%20empresa%20es%3A%20">Escribir por WhatsApp</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/jorge-alvarez-6707631aa">LinkedIn</a>
       <a class="btn ghost" href="https://www.youtube.com/@FukuOps">YouTube</a>
@@ -724,8 +739,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <script>
 (function(){
   var f=document.getElementById('fpiloto'),b=document.getElementById('fbtn'),m=document.getElementById('fmsg'),h=document.getElementById('fhint');
-  var hints={'Piloto gratis':'4 semanas gratis probando FukuOps con tus facturas reales.','Asesoría':'Cuéntanos tu necesidad y te proponemos un diagnóstico sin costo.','ERP y sistemas':'Cuéntanos qué sistemas usas y qué problema tienes. El primer diagnóstico no tiene costo.','Varias cosas':'Completa las partes que te interesen.'};
-  var show={'Piloto gratis':['piloto'],'Asesoría':['asesoria'],'ERP y sistemas':['erp'],'Varias cosas':['piloto','asesoria','erp']};
+  var hints={'Piloto gratis':'4 semanas gratis probando FukuOps con tus facturas reales.','Asesoría':'Cuéntanos tu necesidad y te proponemos un diagnóstico sin costo.','ERP y sistemas':'Cuéntanos qué sistemas usas y qué problema tienes. El primer diagnóstico no tiene costo.','Varias cosas':'Completa las partes que te interesen.','Consulta o sugerencia':'¿Tienes una pregunta, una idea o quieres colaborar? Escríbenos.'};
+  var show={'Piloto gratis':['piloto'],'Asesoría':['asesoria'],'ERP y sistemas':['erp'],'Varias cosas':['empresa','piloto','asesoria','erp'],'Consulta o sugerencia':['contacto']};
+  ['Piloto gratis','Asesoría','ERP y sistemas'].forEach(function(k){show[k]=['empresa'].concat(show[k]);});
+  var wa=document.getElementById('fwa');
   var mig=document.getElementById('chkMig'),mb=document.getElementById('migbox');
   function migmode(){var on=mig.checked&&!mb.closest('[data-for]').hidden;mb.hidden=!mig.checked;mb.querySelectorAll('[data-mreq]').forEach(function(el){el.required=on;});}
   mig.addEventListener('change',migmode);
@@ -737,7 +754,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       sec.querySelectorAll('[data-req]').forEach(function(el){el.required=on;});
     });
     h.textContent=hints[v]||'';
-    b.textContent=(v==='Asesoría'||v==='ERP y sistemas')?'Pedir diagnóstico':'Enviar solicitud';
+    b.textContent=(v==='Asesoría'||v==='ERP y sistemas')?'Pedir diagnóstico':(v==='Consulta o sugerencia'?'Enviar mensaje':'Enviar solicitud');
+    var isC=v==='Consulta o sugerencia'; wa.required=!isC; wa.parentNode.querySelector('.reqmark').hidden=isC;
     migmode();
   }
   window.fkSetInteres=function(v){var r=f.querySelector('input[name="Interés"][value="'+v+'"]');if(r){r.checked=true;mode();}};
@@ -758,11 +776,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     });
     if(!aBox.hidden&&areas.length)d['Áreas de asesoría']=areas.join(', ');
     if(!eBox.hidden){d['Sistemas que usa']=sys.join(', ');d['Problema con el ERP']=prob.join(', ');if(!mb.hidden&&mdat.length)d['Datos a migrar']=mdat.join(', ');}
-    d._subject=(d['Interés']||'Contacto')+' · '+(d.Empresa||''); d._template='table'; d._replyto=d.email;
+    var isC=d['Interés']==='Consulta o sugerencia';
+    d._subject=isC?('Consulta · '+(d['Tipo de mensaje']||'')+' · '+(d.Nombre||'')):((d['Interés']||'Contacto')+' · '+(d.Empresa||'')); d._template='table'; d._replyto=d.email;
     var label=b.textContent; b.disabled=true; b.textContent='Enviando…';
-    fetch('https://formsubmit.co/ajax/contacto.fukuops@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
+    fetch('https://formsubmit.co/ajax/'+(isC?'contacto.fukuops+consultas@gmail.com':'contacto.fukuops@gmail.com'),{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
       .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)==='false')throw j;return j;});})
-      .then(function(){f.reset();mode();m.className='fmsg ok';m.textContent='¡Listo! Recibimos tu solicitud. Te contactaremos en menos de 48 horas hábiles.';})
+      .then(function(){f.reset();mode();m.className='fmsg ok';m.textContent=(isC?'¡Gracias! Recibimos tu mensaje y te responderemos pronto.':'¡Listo! Recibimos tu solicitud. Te contactaremos en menos de 48 horas hábiles.');})
       .catch(function(){m.className='fmsg err';m.innerHTML='No pudimos enviar el formulario. Escríbenos por <a href="https://wa.me/56946599420">WhatsApp</a> o a contacto.fukuops@gmail.com.';})
       .finally(function(){b.disabled=false;b.textContent=label;});
   });
